@@ -86,7 +86,7 @@
               <a href="#" class="thumbnail-link d-block mb-4"></a>
               <h3 style="font-size: 25px;" class="block-service-1-heading mb-3"><a href="#">Create an Account</a></h3>
               <div class="block-service-1-excerpt"><p>Begin by signing up on PediaPlus. Activate and verify your email in order to unlock your 5 free pdf credit. </p></div>
-              <p><a href="dashboard/./signup" class="d-inline-flex align-items-center block-service-1-more"><span>Sign up now</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+              <p><a href="./signup" class="d-inline-flex align-items-center block-service-1-more"><span>Sign up now</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
             </div>
           </div>
           <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
@@ -103,7 +103,7 @@
               <div class="number-behind">03</div>
               <a href="#" class="thumbnail-link d-block mb-4"></a>
               <h3 style="font-size: 25px;" class="block-service-1-heading mb-3"><a href="#">Donate PDFs</a></h3>
-              <div class="block-service-1-excerpt"><p>You can help donate unavailable PDFs on PediaPlus. We award donators who donates PDFs on PediaPlus with 2 points per PDF uploaded. Once your point reaches 2,000, you are eligble to cash out NGN1 000 from PediaPlus.</p></div>
+              <div class="block-service-1-excerpt"><p>You can help donate unavailable PDFs on PediaPlus. We award donators who donates PDFs on PediaPlus with 2 points per PDF uploaded. Once you reach a total of 700points, you will be awarded with 50 PDF Credits.</p></div>
               <p><a href="dashboard/./donate" class="d-inline-flex align-items-center block-service-1-more"><span>Doante PDFs</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
             </div>
           </div>
@@ -119,7 +119,10 @@
         <div class="block-half-content-text-inner">
           <h2 class="block-half-content-heading mb-4">Why Choose Us</h2>
           <div class="block-half-content-excerpt">
-          <p class="lead">PediaPlus has been passionate about making every students lectures hustle and stress free. With over 3+ years in providing unlimited lecture PDFs, we stand out!</p>
+          <p class="lead">You stuck getting a PDF? </p>
+          <p>
+            PediaPlus was developed to ensure you don`t encounter stress getting PDFs for your school. We`ve got you covered!   
+          </p>
           </div>
         </div>
 
@@ -128,7 +131,7 @@
             <div class="col-sm-4">
               <div class="counter">
                 <div class="number-wrap">
-                  <span class="block-counter-1-number" data-number="500">0</span><span class="append"></span>
+                  <span class="block-counter-1-number" data-number="100">0</span><span class="append"></span>
                 </div>
                 <span class="block-counter-1-caption">PDFs Downloaded</span>
               </div>
@@ -136,7 +139,7 @@
             <div class="col-sm-4">
               <div class="counter">
                 <div class="number-wrap">
-                  <span class="block-counter-1-number" data-number="800">0</span><span class="append
+                  <span class="block-counter-1-number" data-number="200">0</span><span class="append
 "></span>
                 </div>
                 <span class="block-counter-1-caption">Happy Students</span>
@@ -145,7 +148,7 @@
             <div class="col-sm-4">
               <div class="counter">
                 <div class="number-wrap">
-                  <span class="block-counter-1-number" data-number="89">0</span><span class="append">%</span>
+                  <span class="block-counter-1-number" data-number="60">0</span><span class="append">%</span>
                 </div>
                 <span class="block-counter-1-caption">Satisfaction</span>
               </div>
@@ -155,70 +158,7 @@
       </div>
     </div>
 
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-12 text-center">
-            <h2 class="site-section-heading text-center font-secondary">PediaPlus Team</h2>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="d-block d-lg-flex">
-          <div class="half-wrap d-block d-md-flex">
-            <div class="half bg-white d-block d-md-flex arrow-right">
-              <div class="text">
-                <h2>Omojola Ayodeji</h2>
-                <p>Federal University Oye Ekiti - Ikole Campus</p>
-                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-whatsapp"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-              </div>
-            </div>
-            <div class="half bg-img img" style="background-image: url('images/.jpg');"></div>
-          </div>
-          <div class="half-wrap d-block d-md-flex">
-            <div class="half bg-white d-block d-md-flex arrow-right">
-              <div class="text">
-                <h2>Oluyitan Victor</h2>
-                <p>PDF Resource Manager</p>
-                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-whatsapp"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-              </div>
-            </div>
-            <div class="half bg-img img" style="background-image: url('images/1.jpg');"></div>
-          </div>
-        </div>
 
-        <div class="d-block d-lg-flex">
-            <div class="half-wrap d-block d-md-flex">
-              <div class="half bg-white d-block d-md-flex arrow-left order-md-2">
-                <div class="text">
-                  <h2>Ayoola Jedidiah</h2>
-                  <p>StoryTeller</p>
-               <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-whatsapp"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                </div>
-              </div>
-              <div class="half bg-img img" style="background-image: url('images/img_3.jpg');"></div>
-            </div>
-            <div class="half-wrap d-block d-md-flex">
-              <div class="half bg-white  d-block d-md-flex arrow-left order-md-2">
-                <div class="text">
-                  <h2>Mbonu Abraham</h2>
-                  <p>PDFs Support</p>
-               <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-whatsapp"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                </div>
-              </div>
-              <div class="half bg-img img" style="background-image: url('images/img_4.jpg');"></div>
-            </div>
-          </div>
-      </div>
-    </div>
 
 <?php include("include/footer.php"); ?>
   </div>

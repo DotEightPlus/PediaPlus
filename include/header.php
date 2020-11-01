@@ -28,7 +28,7 @@
 
     <link rel="manifest" href="manifest.json">
 
-    <link type="image/x-icon" rel="shortcut icon" href="images/logo.png">
+    <link type="image/x-icon" rel="shortcut icon" href="images/ico.png">
     
   </head>
   <body>
@@ -49,7 +49,7 @@
       <div class="site-mobile-menu-body"></div>
     </div>
     
-    <header style="position: fixed; background: rgba(234, 114, 140, 0.9); top: 0rem;" class="site-navbar" role="banner">
+    <header style="position: fixed; background: rgba(234, 114, 140, 0.9); top: 0rem; height: 70px;" class="site-navbar" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
@@ -72,7 +72,7 @@
           </div>
 
 
-          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px; right: 20px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
 
           </div>
 

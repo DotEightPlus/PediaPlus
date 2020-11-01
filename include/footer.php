@@ -1,4 +1,4 @@
-    <div class="site-section">
+    <div class="site-section bg-light">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-12 text-center">
@@ -105,7 +105,7 @@
         <div class="row pt-5 mt-5">
           <div class="col-12 text-md-center text-left">
             <p>
-            Copyright &copy;PediaPlus <script>document.write(new Date().getFullYear());</script> from  <a href="https://www.google.com/search?q=doteightinc&rlz=1C1RLNS_enNG901NG901&oq=&sourceid=chrome&ie=UTF-8" target="_blank" >DotEightInc.</a>
+           &copy; PediaPlus <script>document.write(new Date().getFullYear());</script> from  <a href="https://doteightinc.com" target="_blank" >DotEightInc.</a>
             </p>
           </div>
         </div>
