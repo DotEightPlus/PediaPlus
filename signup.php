@@ -80,7 +80,7 @@
       document.getElementById("msg").innerHTML = "'myWindow' has never been opned!";
     } else {
       if(myWindow.closed){
-        location.replace("https://pediaplus.com.ng/apireq");
+        location.replace("https://pediaplus.com.ng/apireq?");
         document.getElementById("msg").innerHTML = "'myWindow' has  been closed!";
       } else {
 

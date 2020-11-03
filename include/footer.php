@@ -62,7 +62,7 @@
             <div class="row">
               <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
             <h2 class="footer-heading mb-4">About us</h2>
-            <p>PediaPlus is a service from DotEightInc. Committed and developed towards providing lectures PDFs and making every student lecture hustle and stress free.</p>
+            <p>PediaPlus is a service from DotEightPlus. Committed and developed towards providing lectures PDFs and making every student lecture hustle and stress free.</p>
               </div>
               <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
                 <h2 class="footer-heading mb-4">Other Services</h2>
@@ -105,7 +105,7 @@
         <div class="row pt-5 mt-5">
           <div class="col-12 text-md-center text-left">
             <p>
-           &copy; PediaPlus <script>document.write(new Date().getFullYear());</script> from  <a href="https://doteightinc.com" target="_blank" >DotEightInc.</a>
+           &copy; PediaPlus <script>document.write(new Date().getFullYear());</script> from  <a href="https://doteightplus.com" target="_blank" >DotEightPlus.</a>
             </p>
           </div>
         </div>
