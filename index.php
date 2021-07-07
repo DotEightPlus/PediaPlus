@@ -3,6 +3,8 @@
 
 <head>
     <title>DotPedia</title>
+    <meta name="description" content="DotPedia | Home">
+    <meta name="keywords" content="DotPedia, Pdf">
     <?php include("include/header.php"); ?>
 
     <div class="site-blocks-cover overlay" style="background-image: url(images/bg_4.jpg);" data-aos="fade"
@@ -147,10 +149,12 @@
                     <p class="lead"><b class="font-weight-bold">READ .:</b> Expand your knowledge bank with PDF's and
                         Books uploaded by contributors on DotPedia
                     </p>
+                    <br />
                     <p>
                         <b class="font-weight-bold">EARN .:</b> You can make money by uploading unavailable PDF's on
                         DotPedia. You also make money based on numbers on downloads on the PDF you uploaded.
                     </p>
+                    <br />
                     <p>
                         <b class="font-weight-bold">SHARE .:</b> Make even much more money when you refer to a new
                         student, aspirant, undergraduate or graduate to DotPedia.
