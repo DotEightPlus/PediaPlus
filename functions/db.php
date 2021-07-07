@@ -1,6 +1,6 @@
 <?php
 //creating the database to use
-$con = mysqli_connect("localhost","root","","pediaplus");
+$con = mysqli_connect("localhost","root","","dotpedia");
 
 function row_count($result) {
 
