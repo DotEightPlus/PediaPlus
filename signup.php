@@ -16,7 +16,7 @@
 
                     <div class="row justify-content-center mb-4">
                         <div class="col-md-10 text-center">
-                            <h1 data-aos="fade-up" class="mb-5"><span
+                            <h1 data-aos="fade-up" class="mb-5 font-weight-bold text-head"><span
                                     style="color: #fff; border-radius: 0px 20px 0px 20px;" class="typed-words"></span>
                             </h1>
 
@@ -28,49 +28,49 @@
         </div>
     </div>
 
-    <div class="block-quick-info-2">
+    <div style="background:  #FFE9E6" class="block-quick-info-2">
         <div class="container">
             <div class="block-quick-info-2-inner">
                 <div class="col-md-12">
                     <form action="#">
                         <div class="row form-group">
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-4">
                                 <label for="fname">Full Name</label>
                                 <input type="text" id="fname" class="form-control" placeholder="Input Your Full Name">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-4">
                                 <label for="lname">Create a username</label>
                                 <input type="text" id="usname" class="form-control" placeholder="Create your username">
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-4">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" class="form-control"
                                     placeholder="Input your email address">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-4">
                                 <label for="email">Telephone</label>
-                                <input type="number" id="email" class="form-control"
+                                <input type="number" id="tel" class="form-control"
                                     placeholder="Input your email address">
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-md-12">
+                            <div class="col-md-12 mt-4">
                                 <label for="subject">Institution</label>
-                                <input type="number" id="tel" class="form-control"
+                                <input type="number" id="inst" class="form-control"
                                     placeholder="Input your telephone number">
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-4">
                                 <label for="fname">Create a password</label>
                                 <input type="password" id="pword" class="form-control" placeholder="Create a password">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-4">
                                 <label for="lname">Confirm Password</label>
                                 <input type="password" id="cpword" class="form-control"
                                     placeholder="Re-type your password here">
@@ -79,8 +79,9 @@
 
                         <div class="form-group row">
 
-                            <button data-aos="fade-up" data-aos-delay="100" class="btn btn-primary btn-pill float-left"
-                                id="nxtSign" value="Create Free Account">Create A Free Account</button>
+                            <button data-aos="fade-up" data-aos-delay="100"
+                                class="btn btn-primary btn-pill btnnt float-left" id="nxtSign"
+                                value="Create Free Account">Create A Free Account</button>
 
                         </div>
 
@@ -117,7 +118,7 @@
     <script src="js/typed.js"></script>
     <script>
     var typed = new Typed('.typed-words', {
-        strings: ["Let's Get You Started"],
+        strings: ["Let's Get Started"],
         typeSpeed: 80,
         backSpeed: 80,
         backDelay: 400,

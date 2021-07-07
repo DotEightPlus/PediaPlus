@@ -196,6 +196,12 @@ h5,
   }
 }
 
+@media (max-width: 991.98px) {
+  .btnnt {
+    width: 80%;
+  }
+}
+
 .btn.btn-primary:hover {
   color: #000;
   background: #ffe9e6;
