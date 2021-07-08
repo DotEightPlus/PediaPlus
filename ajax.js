@@ -125,7 +125,7 @@ $(document).ready(function()
 		}
 		}
 
-		$("#ModalCenter").modal();
+		$("#exampleModalCenter").modal();
 
 })
 

@@ -26,6 +26,7 @@
 
    <link rel="manifest" href="manifest.json">
 
+
    <link type="image/x-icon" rel="shortcut icon" href="images/ico.png">
 
    </head>

@@ -233,7 +233,7 @@ function mail_mailer($email, $activator, $subject, $link) {
 
  	if(isset($_POST['username']) && isset($_POST['password'])) {
 
-			$username        = clean(escape($_POST['username']);
+			$username        = clean(escape($_POST['username']));
 			$password   	 = md5($_POST['password']);
 
 			$sql = "SELECT * FROM `signup` WHERE `usname` = '$username' AND `pword` = '$password'";
@@ -272,31 +272,14 @@ function mail_mailer($email, $activator, $subject, $link) {
 						echo "This username doesn't have an account.";
 					}
 
-			} else {
+			} 
 
-				echo "Invalid Login";
-			}
+		}else {
 
+			echo "Invalid Login";
 		}
+	}
 
-
-/************************ user login functions**********/
-
-function login_user($username, $password) {
-
-	$pword  	= md5($password);
-	$usrname 	= escape($username);
-	
-
-	
-
-	
-
-	
-}
-}
-
-} //end of function 
 
 	
 	/************************ sverified **********/
