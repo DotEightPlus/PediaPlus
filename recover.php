@@ -1,10 +1,10 @@
 <?php
 include("functions/init.php");
 
-if(!isset($_SESSION['usemail'])) {
+/*if(!isset($_SESSION['fgeml'])) {
 
 redirect("./opps");
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,10 +22,10 @@ redirect("./opps");
 
                     <div class="row justify-content-center mb-4">
                         <div class="col-md-10 text-center">
-                            <h1 data-aos="fade-up" class="mb-5 font-weight-bold text-head">GET <span
-                                    style="background: #FFE9E6; color: #ff0000; border-radius: 0px 20px 0px 20px;"
-                                    class="typed-words"></span> <br />PDF CREDITS</h1>
-                            <p style="margin-top: -40px;">An activation link has been sent to
+                            <h1 data-aos="fade-up" class="mb-5 font-weight-bold text-head">RECOVER <br /><span
+                                    style="color: #FFE9E6; border-radius: 0px 20px 0px 20px;"
+                                    class="typed-words"></span></h1>
+                            <p style="margin-top: -40px;">A recovery link has been sent to
                                 <span class="font-weight-bold"><?php echo $_SESSION['usemail'] ?></span>
                             </p>
 
@@ -60,7 +60,7 @@ redirect("./opps");
     <script src="js/typed.js"></script>
     <script>
     var typed = new Typed('.typed-words', {
-        strings: ["&nbsp;FREE 5&nbsp;"],
+        strings: ["&nbsp;PASSWORD&nbsp;"],
         typeSpeed: 80,
         backSpeed: 80,
         backDelay: 400,

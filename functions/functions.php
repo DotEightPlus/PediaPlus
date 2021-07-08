@@ -242,6 +242,8 @@ $send = mail($to, $subject, $body, $headers);
 
 					$activator = token_generator();
 
+					$_SESSION['usemail'] = $email;
+
 					//redirect to verify function
 					$subject = "VERIFY YOUR EMAIL";
 					$link 	 = "https://dotpedia.com.ng/./activate?vef=".$activator;
@@ -288,11 +290,14 @@ if(isset($_POST['fgeml'])) {
 
 	$activator = token_generator();
 
+	$ssl = "UPDATE `signup` SET `activator` = '$activator' WHERE `email` = '$fgeml'";
+	$rsl = query($ssl);
+
 	//redirect to verify function
 	$subj = "RESET YOUR PASSWORD";
 	$link = "https://dotpedia.com.ng/./reset?vef=".$activator;
 
-	$_SESSION['usemail'] = $email;
+	$_SESSION['fgeml'] = $email;
 
 	fgmail_mailer($email, $activator, $subj, $link);
 
@@ -331,7 +336,7 @@ $body .= "<h1 style='margin-top: 45px; color: #ff0000'>Recover Your Password</h1
 <br/>";
 $body .= "<p style='margin-left: 45px; margin-top: 34px; text-align: left; font-size: 17px;'>Hi there! <br/> You requested for a password reset</p><br/>";
 
-$body .= "<p style='margin-left: 45px; text-align: left;'><a target='_blank' href='{$link}' style='color: #ff0000; text-decoration: none'><b>Click here to activate your email Address</b></a></p>
+$body .= "<p style='margin-left: 45px; text-align: left;'><a target='_blank' href='{$link}' style='color: #ff0000; text-decoration: none'><b>Click here to recover your password</b></a></p>
 <br/>";
 $body .= "<p style='margin-left: 45px; padding-bottom: 80px; text-align: left;'>Kindly ignore this mail if this wasn't from you.</p>";	
 $body .= "<p text-align: center;'><a href='https://dotpedia.com.ng/contact'><img src='https://dotpedia.com.ng/images/6.png'></a>";
