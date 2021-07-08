@@ -152,7 +152,7 @@
                     <br />
                     <p>
                         <b class="font-weight-bold">EARN .:</b> You can make money by uploading unavailable PDF's on
-                        DotPedia. You also make money based on numbers on downloads on the PDF you uploaded.
+                        DotPedia.
                     </p>
                     <br />
                     <p>

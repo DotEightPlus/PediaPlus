@@ -122,84 +122,124 @@ function activated($username) {
 	} 
 }
 
-							/******End of Helper Functions********/
-
-							/******Validation User Reg *****/
 
 
-$errors = [];
-$min = 4;
 
-if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['user']) || isset($_POST['pword']) && isset($_POST['cpword'])) {
+
+/** VALIDATE USER REGISTRATION **/
+
+if(isset($_POST['fname']) && isset($_POST['tel']) && isset($_POST['email']) && isset($_POST['user']) || isset($_POST['pword']) && isset($_POST['cpword']) && isset($_POST['inst'])) {
 
 $fname 			= clean($_POST['fname']);
-$lname	 		= clean($_POST['lname']);
+$tel	 		= clean($_POST['tel']);
 $email	 		= clean($_POST['email']);
 $uname	 		= clean($_POST['user']);
 $pword    		= clean($_POST['pword']);
 $cpword 		= clean($_POST['cpword']);
+$inst			= clean($_POST['inst']);
 
 if(email_exist($email)) {
 
-			$errors[] = "Sorry! That email already has an account";
+			echo "Sorry! That email already has an account";
 		} else {
 
 if(username_exist($uname)) {
 
-			$errors[] = "That username has been taken!";
+			echo "That username has been taken!";
 		} else {
 
 
 if($pword != $cpword) {
 
-			$errors[] = "Password doesn`t match!";
-		}
-	}
-	}
-
-
-		if(!empty($errors)) {
-
-			foreach ($errors as $error) {
-		
-                echo validator($error); 
-
-			}
-
+			echo "Password doesn`t match!";
+			
 		} else {
 
-			if(register($fname, $lname, $email, $uname, $pword, $cpword)) {
-
-				echo validator($error); 
-
-							} else {
-
-				echo "Loading...Please wait!";												
-				echo '<script>window.location.href ="./okk?email='.$email.'&user='.$uname.'"</script>';
-							}
-
+			register($fname, $tel, $email, $uname, $pword, $inst);
 		}
-
-
+	}
+	}
 	} // post request
 
-/****register user*****/
-function register($fname, $lname, $email, $uname, $pword, $cpword) {
 
-	$fnam = escape($lname)." ".escape($fname);
+	
+
+/** REGISTER USER **/
+function register($fname, $tel, $email, $uname, $pword, $inst) {
+
+	$fnam = escape($fname);
 	$emai = escape($email);
 	$unam = escape($uname);
+	$inst = escape($inst);
 	$pwor = md5($pword);
 
 	$datereg = date("Y-m-d");
+
+	$activator = token_generator();
 	
-$sql = "INSERT INTO signup(`id`, `fname`, `usname`, `email`, `pword`, `datereg`, `active`)";
-$sql.= " VALUES('1', '$fnam', '$unam', '$emai', '$pwor', '$datereg', '0')";
+$sql = "INSERT INTO signup(`id`, `fname`, `usname`, `email`, `pword`, `datereg`, `active`, `tel`, `inst`, `activator`)";
+$sql.= " VALUES('1', '$fnam', '$unam', '$emai', '$pwor', '$datereg', '0', '$activator')";
 $result = query($sql);
 confirm($result);
 
+//redirect to verify function
+$subject = "VERIFY YOUR EMAIL";
+$link = "";
 
+mail_mailer($email, $activator, $subject, $link);
+
+//redirect to verify page
+echo '<script>window.location.href ="./verify"</script>';
 	 }
+
+
+
+/* MAIL VERIFICATIONS */
+function mail_mailer($email, $activator, $subject, $link) {
+
+	$to 		= $email;
+    $from 		= "noreply@teensyouths.com.ng";
+
+	$headers  = "From: " . $from . "\r\n";
+	$headers .= "Reply-To: ". $from . "\r\n";
+	$headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=\"iso-8859-1\"\n";
+    $headers .= "X-Priority: 1 (Highest)\n";
+    $headers .= "X-MSMail-Priority: High\n";
+    $headers .= "Importance: High\n";
+
+    $subject = "You Joined the Revolution";
+
+    $logo = 'https://teensyouths.com.ng/img/2.png';
+    $url  = 'https://teensyouths.com.ng';
+    $link = 'https://teensyouths.com.ng/./';
+
+	$body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>TeensYouths.. Let the revolution begin</title></head><link rel='stylesheet' href='https://teensyouths.com.ng/css/bootstrap.min.css'><body style='text-align: center;'>";
+	$body .= "<section style='margin: 30px; margin-top: 50px ; background: #c92f2f; color: white;'>";
+	$body .= "<img style='margin-top: 35px' src='{$logo}' alt='TeensYouths'>";
+	$body .= "<h1 style='margin-top: 45px; color: #fbb710'>You joined the revolution</h1>
+		<br/>";
+	$body .= "<p style='margin-left: 45px; margin-top: 34px; text-align: left; font-size: 17px;'>Hi there! <br/> Thank you for joining the revolution. You will start receiving blog updates;</p>
+		<br/>";
+	$body .= '<table class="text-center" style="width:90%; margin-left: 45px; color: white; border: 1px solid #f9f9ff;">
+   <tr>
+    <th style="border: 1px solid #f9f9ff;">Email</th>
+    <th style="border: 1px solid #f9f9ff;">Date</th>
+  </tr>
+  <tr style="border: 1px solid #f9f9ff;">
+    <td style="border: 1px solid #f9f9ff;">'.$to.'</td>
+    <td style="border: 1px solid #f9f9ff;">'.date('D, M d, Y h:i:sa', strtotime($date)).'</td>
+  </tr>
+</table><br/>';
+	$body .= "<p style='margin-left: 45px; padding-bottom: 80px; text-align: left;'>Do not bother replying this email. This is a virtual email</p>";
+	$body .= "<p style='text-align: center; padding-bottom: 50px;'></p>";	
+	$body .= "<script src='https://teensyouths.com.ng/js/bootstrap/bootstrap.min.js'></script>";
+	$body .= "</section>";	
+	$body .= "</body></html>";
+    $send = mail($to, $subject, $body, $headers);
+}
+
+
 
 
 								/******End of Validation reg********/

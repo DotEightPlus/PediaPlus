@@ -32,7 +32,7 @@
         <div class="container">
             <div class="block-quick-info-2-inner">
                 <div class="col-md-12">
-                    <form action="#">
+                    <form>
                         <div class="row form-group">
                             <div class="col-md-6 mt-4">
                                 <label for="fname">Full Name</label>
@@ -60,18 +60,18 @@
                         <div class="row form-group">
                             <div class="col-md-12 mt-4">
                                 <label for="subject">Institution</label>
-                                <input type="number" id="inst" class="form-control"
+                                <input type="text" id="inst" class="form-control"
                                     placeholder="Input your telephone number">
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-md-6 mt-4">
-                                <label for="fname">Create a password</label>
+                                <label for="pword">Create a password</label>
                                 <input type="password" id="pword" class="form-control" placeholder="Create a password">
                             </div>
                             <div class="col-md-6 mt-4">
-                                <label for="lname">Confirm Password</label>
+                                <label for="cpword">Confirm Password</label>
                                 <input type="password" id="cpword" class="form-control"
                                     placeholder="Re-type your password here">
                             </div>
@@ -79,10 +79,9 @@
 
                         <div class="form-group row">
 
-                            <button data-aos="fade-up" data-aos-delay="100"
-                                class="btn btn-primary btn-pill btnnt float-left" id="nxtSign"
-                                value="Create Free Account">Create A Free Account</button>
-
+                            <button type="button" data-aos="fade-up" data-aos-delay="100"
+                                class="btn btn-primary btn-pill btnnt float-left" id="sub">Create A Free
+                                Account</button>
                         </div>
 
                     </form>
@@ -94,6 +93,17 @@
 
 
     </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div style="background: #FFE9E6; color: #ff0000;" class="modal-content">
+                <div class="modal-body">
+                    <div id="msg" class="text-center"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -129,40 +139,6 @@
     </script>
 
     <script src="js/main.js"></script>
-
-    <script type="text/javascript">
-    var myWindow;
-
-    function openWin() {
-        myWindow = window.open("https://dotaccount.doteightinc.com/apiput", "myWindow", "width=900, height=1000");
-        console.log(document.title)
-
-    }
-
-    window.onload = function() {
-
-        function checkWin() {
-            if (!myWindow) {
-                document.getElementById("msg").innerHTML = "'myWindow' has never been opned!";
-            } else {
-                if (myWindow.closed) {
-                    location.replace("https://pediaplus.com.ng/apireq?");
-                    document.getElementById("msg").innerHTML = "'myWindow' has  been closed!";
-                } else {
-
-                    document.getElementById("msg").innerHTML = "'myWindow' has not been closed!";
-                }
-            }
-        }
-
-
-        setInterval(checkWin, 1000);
-
-
-
-    }
-    </script>
-
     </body>
 
 </html>

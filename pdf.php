@@ -198,7 +198,7 @@
     <script src="js/typed.js"></script>
     <script>
     var typed = new Typed('.typed-words', {
-        strings: ["&nbsp;DOWNLOAD&nbsp;", "&nbsp;SHARE&nbsp;", "&nbsp;SAVE&nbsp;  "],
+        strings: ["&nbsp;GET&nbsp;", "&nbsp;SHARE&nbsp;", "&nbsp;SAVE&nbsp;  "],
         typeSpeed: 80,
         backSpeed: 80,
         backDelay: 400,

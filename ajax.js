@@ -5,72 +5,88 @@ $(document).ready(function()
 	$("#sub").click(function() 
 	{
 		var fname	 = $("#fname").val();
-		var lname 	 = $("#lname").val();
+		var tel  	 = $("#tel").val();
 		var email 	 = $("#email").val();
-		var user 	 = $("#user").val();
+		var inst 	 = $("#inst").val();
+		var user 	 = $("#usname").val();
 		var pword  	 = $("#pword").val();
 		var cpword 	 = $("#cpword").val();
-		$("#exampleModalCenter").modal();
+		
+		if (fname == "" || fname == null) {
 
-	var a = document.forms["myForm"]["fname"].value;
-	var b = document.forms["myForm"]["lname"].value;
-	var c = document.getElementById("email");
-	var g = document.forms["myForm"]["email"].value;
-	var d = document.forms["myForm"]["user"].value;
-	var e = document.forms["myForm"]["pword"].value;
-	var f = document.forms["myForm"]["cpword"].value;
+			$('#msg').html("Input your full name please");
 
-    if (a == null || a == "") {
-    document.getElementById("msg").innerHTML = "Please Input your First Name";
-        return false;
-    } else {
+		} else {
 
-    	 if (b == null || b == "") {
-    document.getElementById("msg").innerHTML = "Your Last Name can`t be empty";
-        return false;
-    } else {
+		if(tel == "" || tel == null) {
 
-    	  if (g == null || g == "") {
-    document.getElementById("msg").innerHTML = "Please Input your Email Address";
-        return false;
-    } else {
+			$('#msg').html("Telephone number cannot be empty");
 
-    	 if (!c.checkValidity()) {
-    document.getElementById("msg").innerHTML = c.validationMessage;
-        return false;
-    } else {
+		} else {
 
-    	 if (d == null || d == "") {
-    document.getElementById("msg").innerHTML = "Create a username";
-        return false;
-    } else {
+			if(email == "" || email == null) {
 
-    	 if (e == null || e == "") {
-    document.getElementById("msg").innerHTML = "Create a secured Password";
-        return false;
-    }
-    }
+				$('#msg').html("Invalid email address");
+
+			} else {
+
+			if(inst == "" || inst == null) {
+
+				$('#msg').html("Fill in your institution name");
+
+			}else {
+
+			if(user == "" || user == null) {
+
+				$('#msg').html("Create a username");
+
+			}else {
+			
+				if(pword == "" || pword == null) {
+
+					$('#msg').html("Create a secured password");
+
+				}else {
+
+				if(cpword == "" || cpword == null) {
+
+					$('#msg').html("Confirm your password");
+
+				}else {
+
+					if(pword != cpword) {
+
+						$('#msg').html("Password does not match");
+
+					} else {
+
+						$('#msg').html("Loading...Please Wait");
+
+						$.ajax
+(
+{
+    type        :  'post',
+    url         :  'functions/init.php',
+    data        :  {fname:fname,tel:tel,email:email,user:user,pword:pword,cpword:cpword},
+    success     :  function(data)
+    {
+        $('#err').text(data);
     }
 }
-}
-}
-		/*$.post("process.php",{name:username,uemail:email},function(data)
-		{
-			$("#msg").html(data);
-		})*/
+    )
+					}
 
-	$.ajax
-	(
-	{
-		type 		:  'post',
-		url			:  'https://pediaplus.com.ng/functions/init.php',
-		data 		:  {fname:fname,lname:lname,email:email,user:user,pword:pword,cpword:cpword},
-		success 	:  function(data)
-		{
-			$('#msg').html(data);
+				}
+				}
+
+			}
+			}
+			}
 		}
-	}
-		)	
+
+
+				}
+		$("#exampleModalCenter").modal();
 	})
 
 
