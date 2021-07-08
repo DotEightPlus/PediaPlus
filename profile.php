@@ -25,25 +25,36 @@ if(!isset($_SESSION['login'])) {
 
 <head>
     <title>PediaPlus | Profile</title>
-    <?php include("include/header.php"); ?>
+    <?php include("include/header.php");
+    
+    if($row['pix'] == ''){
 
-    <div class="site-blocks-cover overlay" style="background-image: url(images/11.png);" data-aos="fade"
-        data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="row align-items-center justify-content-center text-center">
+        echo '
+        <div class="site-blocks-cover overlay" style="background-image: url(images/3.png);" data-aos="fade"
+            data-stellar-background-ratio="0.5">';
 
-                <div class="col-md-10">
+    } else {
 
-                    <div class="row justify-content-center mb-4">
-                        <div class="col-md-10 text-center">
-                            <h1 data-aos="fade-up" class="mb-5 font-weight-bold"><span style="color: #FFE9E6;"
-                                    class="typed-words"></span></h1>
-                        </div>
+        echo '
+        <div class="site-blocks-cover overlay" style="background-image: url(images/profilepix/'.$row['pix'].');" data-aos="fade"
+            data-stellar-background-ratio="0.5">';
+    }
+    ?>
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+
+            <div class="col-md-10">
+
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-10 text-center">
+                        <h1 data-aos="fade-up" class="mb-5 font-weight-bold"><span style="color: #FFE9E6;"
+                                class="typed-words"></span></h1>
                     </div>
-
                 </div>
+
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -186,7 +197,8 @@ if(!isset($_SESSION['login'])) {
                             <div class="col-md-12 mb-3 mb-md-0">
                                 <label class="text-black" for="title">SELECT FILE</label>
                                 <input style="background: #FFE9E6; color: #fff; border-color: #fff" type="file"
-                                    id="title" class="form-control" placeholder="e.g GST 101" required>
+                                    id="psfile" class="form-control" placeholder="e.g GST 101" required>
+                                <p id="msg"></p>
                             </div>
 
                         </div>
@@ -195,8 +207,8 @@ if(!isset($_SESSION['login'])) {
 
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <input style="background: #Fff; color: #ff0000" type="button" value="Upload Picture"
-                                    class="btn btn-pill btn-md"><br />
+                                <input style="background: #Fff; color: #ff0000" type="button" id=pupl
+                                    value="Upload Picture" class="btn btn-pill btn-md"><br />
                             </div>
                         </div>
 

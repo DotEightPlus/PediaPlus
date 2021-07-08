@@ -207,4 +207,43 @@ $(document).ready(function()
 		$("#exampleModalCenter").modal();
 })
 
+
+
+
+
+
+
+
+
+
+
+
+/******** USER PROFILE SECTION */
+
+/** USER PROFILE PICTURE */
+$("#pupl").click(function () {
+
+    var fd = new FormData();
+    var files = $("#psfile").prop("files")[0];
+    fd.append("fle", files);
+
+    if (files == null || files == "") {
+      $("#msg").html("Kindly select a picture");
+    } else {
+
+    	 $("#msg").html("Loading.. Make sure you have a strong internet connection");
+
+      $.ajax({
+        type: "post",
+        url: "functions/init.php",
+        data: fd,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+          $("#msg").html(data);
+        },
+      });
+    }
+})
+
 })
