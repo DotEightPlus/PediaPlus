@@ -67,10 +67,10 @@ $(document).ready(function()
 {
     type        :  'post',
     url         :  'functions/init.php',
-    data        :  {fname:fname,tel:tel,email:email,user:user,pword:pword,cpword:cpword},
+    data        :  {fname:fname,tel:tel,email:email,user:user,pword:pword,cpword:cpword,inst:inst},
     success     :  function(data)
     {
-        $('#err').text(data);
+        $('#msg').text(data);
     }
 }
     )

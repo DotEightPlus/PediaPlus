@@ -79,7 +79,7 @@ DELIMITER;
 
 function email_exist($email) {
 
-	$sql = "SELECT * FROM signup WHERE email = '$email'";
+	$sql = "SELECT * FROM signup WHERE `email` = '$email'";
 	$result = query($sql);
 
 	if(row_count($result) == 1) {
@@ -94,22 +94,7 @@ function email_exist($email) {
 
 function username_exist($usname) {
 
-	$sql = "SELECT * FROM signup WHERE usname = '$usname'";
-	$result = query($sql);
-
-	if(row_count($result) == 1) {
-
-		return true;
-
-	}else {
-
-		return false;
-	} 
-}
-
-function activated($username) {
-
-	$sql = "SELECT * FROM signup WHERE `usname` = '$username' AND `active` = '0'" ;
+	$sql = "SELECT * FROM signup WHERE `usname` = '$usname'";
 	$result = query($sql);
 
 	if(row_count($result) == 1) {
@@ -128,7 +113,7 @@ function activated($username) {
 
 /** VALIDATE USER REGISTRATION **/
 
-if(isset($_POST['fname']) && isset($_POST['tel']) && isset($_POST['email']) && isset($_POST['user']) || isset($_POST['pword']) && isset($_POST['cpword']) && isset($_POST['inst'])) {
+if(isset($_POST['fname']) && isset($_POST['tel']) && isset($_POST['email']) && isset($_POST['pword']) && isset($_POST['cpword']) && isset($_POST['inst'])) {
 
 $fname 			= clean($_POST['fname']);
 $tel	 		= clean($_POST['tel']);
@@ -154,7 +139,6 @@ if($pword != $cpword) {
 			echo "Password doesn`t match!";
 			
 		} else {
-
 			register($fname, $tel, $email, $uname, $pword, $inst);
 		}
 	}
@@ -178,7 +162,7 @@ function register($fname, $tel, $email, $uname, $pword, $inst) {
 	$activator = token_generator();
 	
 $sql = "INSERT INTO signup(`id`, `fname`, `usname`, `email`, `pword`, `datereg`, `active`, `tel`, `inst`, `activator`)";
-$sql.= " VALUES('1', '$fnam', '$unam', '$emai', '$pwor', '$datereg', '0', '$activator')";
+$sql.= " VALUES('1', '$fnam', '$unam', '$emai', '$pwor', '$datereg', '0', '$tel', '$inst', '$activator')";
 $result = query($sql);
 confirm($result);
 
