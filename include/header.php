@@ -66,7 +66,7 @@
                                <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block font-weight-bold">
                                    <li><a href="./"><span><b>Home</b></span></a></li>
                                    <li><a href="./pdf"><span><b>Download PDF</b></span></a></li>
-                                   <li><a href="./donate"><span><b>Donate PDF</b></span></a></li>
+                                   <li><a href="./profile#donor"><span><b>Donate PDF</b></span></a></li>
                                    <li><a href="#"><span><b>Take a Test</b></span></a></li>
                                    <?php
                                    if(isset($_SESSION['login'])) {
