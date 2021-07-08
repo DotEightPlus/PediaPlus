@@ -1,6 +1,11 @@
 <?php
 include("functions/init.php");
 
+if(isset($_SESSION['login'])) {
+
+    unset($_SESSION['login']);
+}
+
 if(!isset($_SESSION['usemail'])) {
 
 redirect("./opps");

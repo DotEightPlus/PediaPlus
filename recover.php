@@ -1,10 +1,15 @@
 <?php
 include("functions/init.php");
 
-/*if(!isset($_SESSION['fgeml'])) {
+if(isset($_SESSION['login'])) {
+
+    unset($_SESSION['login']);
+}
+
+if(!isset($_SESSION['fgeml'])) {
 
 redirect("./opps");
-}*/
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

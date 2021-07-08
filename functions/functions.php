@@ -290,7 +290,7 @@ if(isset($_POST['fgeml'])) {
 
 	$activator = token_generator();
 
-	$ssl = "UPDATE `signup` SET `activator` = '$activator' WHERE `email` = '$fgeml'";
+	$ssl = "UPDATE signup SET `activator` = '$activator' WHERE `email` = '$email'";
 	$rsl = query($ssl);
 
 	//redirect to verify function
@@ -348,4 +348,9 @@ $body .= "</section>";
 $body .= "</body></html>";
 $send = mail($to, $subject, $body, $headers);
 }
+
+
+
+/** RESET PASSWORD **/
+
 ?>

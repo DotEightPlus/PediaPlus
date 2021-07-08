@@ -1,6 +1,11 @@
 <?php
 include("functions/init.php");
 
+if(isset($_SESSION['login'])) {
+
+    unset($_SESSION['login']);
+}
+
 if(!isset($_GET['vef'])) {
 
     redirect("./signin");
@@ -55,20 +60,21 @@ if(!isset($_GET['vef'])) {
                         <div class="row form-group">
                             <div class="col-md-6 mt-4">
                                 <label for="username">Input New Password</label>
-                                <input type="text" id="fgeml" class="form-control"
-                                    placeholder="Input your registered email">
+                                <input type="password" id="fgpword" class="form-control"
+                                    placeholder="Create a new password">
                             </div>
                             <div class="col-md-6 mt-4">
                                 <label for="username">Confirm New Password</label>
-                                <input type="text" id="fgeml" class="form-control"
-                                    placeholder="Input your registered email">
+                                <input type="password" id="fgcpword" class="form-control"
+                                    placeholder="Confirm new password">
                             </div>
                         </div>
 
+                        <p id="act" hidden><?php echo $data ?></p>
 
                         <div class="mt-5">
                             <p class="text-center font-weight-bold"><a style="color: #ff0000; cursor: pointer;"
-                                    id="forgot">Recover Password
+                                    id="reset">Recover Password
                                 </a></p>
                         </div>
 

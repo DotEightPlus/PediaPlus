@@ -1,5 +1,11 @@
 <?php
 include("functions/init.php");
+
+if(isset($_SESSION['login'])) {
+
+    unset($_SESSION['login']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

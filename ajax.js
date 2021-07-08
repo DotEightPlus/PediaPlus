@@ -162,17 +162,36 @@ $(document).ready(function()
 		//reset
 	$("#reset").click(function() 
 	{
-		var passworder	 = $("#passworder").val();
-		var cpassword	 = $("#cpassword").val();
-		var emailr  	 = $("#emailr").val();
-		$("#resetModalCenter").modal();
+		var fgpword	 	= $("#fgpword").val();
+		var fgcpwowrd 	= $("#fgcpword").val();
+		var act  	 	= $("#act").text();
 
-	$.ajax
+		if(fgpword == '' || fgpword == null) {
+
+			$('#msg').html("Please create a password");
+
+		} else {
+
+		if(fgcpwowrd == '' || fgcpwowrd == null) {
+
+		$('#msg').html("Confirm Your Password");	
+
+		} else {
+
+		if(fgpword != fgcpword) {
+
+		$('#msg').html("Password does not match!");	
+
+		} else {
+
+		$('#msg').html("Loading...Please Wait!");
+
+		$.ajax
 	(
 	{
 		type 		:  'post',
-		url			:  'https://pediaplus.com.ng/functions/init.php',
-		data 		:  {passworder:passworder, cpassword:cpassword, emailr:emailr},
+		url			:  'functions/init.php',
+		data 		:  {fgpword:fgpword,fgcpword:fgcpword,act:act},
 		success 	:  function(data)
 		{
 			$('#msg').html(data);
@@ -180,6 +199,12 @@ $(document).ready(function()
 	}
 		)
 
+		}
+		}
+		}
+
+
+		$("#exampleModalCenter").modal();
 })
 
 })
