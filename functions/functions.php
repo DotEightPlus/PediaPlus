@@ -352,5 +352,15 @@ $send = mail($to, $subject, $body, $headers);
 
 
 /** RESET PASSWORD **/
+if(isset($_POST['fgpword']) && isset($_POST['fgcpword']) && isset($_POST['act'])) {
 
+	$fgpword = md5($_POST['fgpword']);
+
+	$sql = "UPDATE signup SET `pword` = '$fgpword', `activator` = '$act' WHERE `activator` = '$activator'";
+	$rsl = query($sql);
+
+	//redirect to verify page
+	echo 'Loading...Please Wait!';
+	echo '<script>window.location.href ="./updated"</script>';
+}
 ?>

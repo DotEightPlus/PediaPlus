@@ -163,7 +163,7 @@ $(document).ready(function()
 	$("#reset").click(function() 
 	{
 		var fgpword	 	= $("#fgpword").val();
-		var fgcpwowrd 	= $("#fgcpword").val();
+		var fgcpword 	= $("#fgcpword").val();
 		var act  	 	= $("#act").text();
 
 		if(fgpword == '' || fgpword == null) {
@@ -172,7 +172,7 @@ $(document).ready(function()
 
 		} else {
 
-		if(fgcpwowrd == '' || fgcpwowrd == null) {
+		if(fgcpword == '' || fgcpword == null) {
 
 		$('#msg').html("Confirm Your Password");	
 
