@@ -95,10 +95,15 @@ if(!isset($_SESSION['login'])) {
                         </p>
 
                         <p class="mb-0 font-weight-bold">Total PDF(s) Donated</p>
-                        <p class="mb-0"><?php echo number_format($row['point']) ?></a> - <a href="#donor"
+                        <p class="mb-4"><?php echo number_format($row['point']) ?></a> - <a href="#donor"
                                 class="d-inline-flex align-items-center block-service-1-more"><span>Donate PDF</span>
                                 <span class="icon-keyboard_arrow_right icon"></span></a></p>
 
+
+                        <div class="col-md-12 ">
+                            <a href="./logout"><input style="width: 100%; background: #FFE9E6; color: #ff0000;"
+                                    type="submit" value="Logout" class="btn btn-pill btn-md "></a><br />
+                        </div>
                     </div>
 
                 </div>
