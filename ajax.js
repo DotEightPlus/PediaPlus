@@ -92,24 +92,40 @@ $(document).ready(function()
 
 
 	//signin
-	$("#sign").click(function() 
+	$("#signin").click(function() 
 	{
-		var username	 = $("#username").val();
-		var password 	 = $("#password").val();
-$("#ModalCenter").modal();
+		var username	 = $("#lgusr").val();
+		var password 	 = $("#lgpword").val();
 
-	$.ajax
-	(
-	{
-		type 		:  'post',
-		url			:  'https://pediaplus.com.ng/functions/init.php',
-		data 		:  {username:username,password:password},
-		success 	:  function(data)
-		{
-			$('#msg').html(data);
+		if(username == "" || username == null) {
+
+			$('#msg').html("Please insert your username");	
+
+		} else {
+
+		if(password == "" || password == null) {
+
+			$('#msg').html("Your password is empty");
+
+		} else {
+
+			$.ajax
+			(
+			{
+				type 		:  'post',
+				url			:  'functions/init.php',
+				data 		:  {username:username,password:password},
+				success 	:  function(data)
+				{
+					$('#msg').html(data);
+				}
+			}
+				)
+
 		}
-	}
-		)
+		}
+
+		$("#ModalCenter").modal();
 
 })
 

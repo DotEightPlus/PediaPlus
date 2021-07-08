@@ -233,41 +233,49 @@ function mail_mailer($email, $activator, $subject, $link) {
 
  	if(isset($_POST['username']) && isset($_POST['password'])) {
 
-			$username        = clean($_POST['username']);
-			$password   	 = clean($_POST['password']);
+			$username        = clean(escape($_POST['username']);
+			$password   	 = md5($_POST['password']);
 
-			if(empty($username)) {
+			$sql = "SELECT * FROM `signup` WHERE `usname` = '$username' AND `pword` = '$password'";
+			$result = query($sql);
+			if(row_count($result) == 1) {
 
-				$errors[] = "Username cannot be empty";
+				$row 	= mysqli_fetch_array($result);
+				$user 	= $row['usname'];
+				$active = $row['active'];
+				$email 	= $row['email'];
+
+				if ($active == 0) {
+
+					$activator = token_generator();
+
+					//redirect to verify function
+					$subject = "VERIFY YOUR EMAIL";
+					$link 	 = "https://dotpedia.com.ng/./activate?vef=".$activator;
+
+					mail_mailer($email, $activator, $subject, $link);
+
+					//redirect to verify page
+					echo '<script>window.location.href ="./verify"</script>';	
+					
+				}  else {
+
+					if($username == $user) {
+						
+						$_SESSION['login'] = $username;
+
+						echo 'Loading...Please Wait';	
+
+						echo '<script>window.location.href ="./pdf"</script>';	
+					} else {
+
+						echo "This username doesn't have an account.";
+					}
+
 			} else {
 
-
-			if(empty($password)) {
-
-				$errors[] = "Password cannot be empty";
+				echo "Invalid Login";
 			}
-		}
-
-
-			if(!empty($errors)) {
-
-				foreach ($errors as $error) {
-			
-	                echo validator($error); 
-
-				}
-
-			} else {
-
-				if(login_user($username, $password)) {
-					echo validator("Loading...Please wait!");												
-				 echo '<script>window.location.href ="dashboard/./"</script>';
-
-				} else {
-
-					echo validator("Invalid login!");
-				}
-			} 
 
 		}
 
@@ -279,24 +287,12 @@ function login_user($username, $password) {
 	$pword  	= md5($password);
 	$usrname 	= escape($username);
 	
-$sql = "SELECT * FROM `signup` WHERE `usname` = '$usrname' AND `pword` = '$pword'";
-$result = query($sql);
-if(row_count($result) == 1) {
-	$row = mysqli_fetch_array($result);
 
-	$user = $row['usname'];
-	$active =  $row['active'];
-	$email 	= $row['email'];
+	
 
-	if ($active == 0) {
-		echo '<script>window.location.href ="./active?email='.$email.'"</script>';
-	} else {
+	
 
-	if($usrname == $user) {
-		session_start();
-		$_SESSION['login'] = $usrname;
-		return true;
-	}
+	
 }
 }
 

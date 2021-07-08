@@ -51,9 +51,9 @@ include("functions/init.php");
 
                         <div class="mt-5">
                             <p class="text-center font-weight-bold"><a style="color: #ff0000; cursor: pointer;"
-                                    id="sub">Sign In
+                                    id="signin">Sign In
                                 </a>&nbsp; |
-                                &nbsp;<a href="./signin" style="color: #000;"> Forgot Password?</a></p>
+                                &nbsp;<a href="./forgot" style="color: #000;"> Forgot Password?</a></p>
                         </div>
 
 
