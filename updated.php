@@ -33,7 +33,8 @@ redirect("./opps");
                             </h1>
                         </div>
                     </div>
-                    <p data-aos="fade-up" data-aos-delay="100"><a href="./pdf" class="btn btn-primary btn-pill">Sign in
+                    <p data-aos="fade-up" data-aos-delay="100"><a href="./logout" class="btn btn-primary btn-pill">Sign
+                            in
                             to continue</a></p>
                 </div>
             </div>

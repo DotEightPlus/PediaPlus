@@ -15,9 +15,13 @@ if(!isset($_GET['vef'])) {
     $rsl = query($sql);
     
     if(row_count($rsl) == 1) {
+
+    $row = mysqli_fetch_array($rsl);
+
+    $fnam = $row['usname'];
    
     //update active to 1
-    $ssl = "UPDATE `signup` SET `active` = '1', `activator` = '' WHERE `activator` = '$data'";
+    $ssl = "UPDATE `signup` SET `active` = '1', `activator` = '', `pdfcredit` = '5' WHERE `activator` = '$data'";
     $res = query($ssl);
 
     } else {
@@ -48,7 +52,8 @@ if(!isset($_GET['vef'])) {
                             </h1>
                         </div>
                     </div>
-                    <p data-aos="fade-up" data-aos-delay="100"><a href="./pdf" class="btn btn-primary btn-pill">Sign in
+                    <p data-aos="fade-up" data-aos-delay="100"><a href="./logout" class="btn btn-primary btn-pill">Sign
+                            in
                             to continue</a></p>
                 </div>
             </div>

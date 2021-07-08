@@ -1075,6 +1075,16 @@ h5,
   }
 }
 
+.donatepdf {
+  margin-top: -70px;
+}
+
+@media (max-width: 991.98px) {
+  .donatepdf {
+    margin-top: 0px;
+  }
+}
+
 .site-blocks-cover p {
   color: #fff;
   font-size: 1rem;
