@@ -12,9 +12,9 @@
                     <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
                         <h2 class="footer-heading mb-4">Quick Links</h2>
                         <ul class="list-unstyled">
-                            <li><a href="dashboard/./pdf">Download PDFs</a></li>
-                            <li><a href="dashboard/./credit">Buy PDF Credits</a></li>
-                            <li><a href="dashboard/./donate">Donate PDF</a></li>
+                            <li><a href="./pdf">Download PDFs</a></li>
+                            <li><a href="./credit">Buy PDF Credits</a></li>
+                            <li><a href="./donate">Donate PDF</a></li>
                             <li><a href="./ads">Ads Center</a></li>
                         </ul>
                     </div>
@@ -34,7 +34,9 @@
             <div class="col-lg-3">
                 <h2 class="footer-heading mb-4">Stay Updated with the latest</h2>
                 <p data-aos="fade-up" data-aos-delay="100"><a style="width: 100%; background: #ff0000; color: #fff"
-                        href="dashboard/./pdf" class="btn btn-primary text-center btn-pill">Join Our Blog</a></p>
+                        href="https://news.dotpedia.com.ng" target="_blank"
+                        class="btn btn-primary text-center btn-pill">Join Our
+                        Blog</a></p>
 
             </div>
         </div>

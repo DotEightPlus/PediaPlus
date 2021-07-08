@@ -174,6 +174,7 @@ $_SESSION['usemail'] = $email;
 mail_mailer($email, $activator, $subject, $link);
 
 //redirect to verify page
+echo 'Loading...Please Wait!';
 echo '<script>window.location.href ="./verify"</script>';
 	 }
 
@@ -224,13 +225,7 @@ function mail_mailer($email, $activator, $subject, $link) {
 
 
 
-
-								/******End of Validation reg********/
-
-					/************************validate user login functions**********/
-
-	$errors = [];
-
+/** SIGN IN USER **/
  	if(isset($_POST['username']) && isset($_POST['password'])) {
 
 			$username        = clean(escape($_POST['username']));

@@ -21,7 +21,7 @@
                                     style="background: #FFE9E6; color: #ff0000; border-radius: 0px 20px 0px 20px;"
                                     class="typed-words"></span> <br />AND
                                 SHARE </h1>
-                            <p data-aos="fade-up" data-aos-delay="100"><a href="dashboard/./pdf"
+                            <p data-aos="fade-up" data-aos-delay="100"><a href="./pdf"
                                     class="btn btn-primary btn-pill">Download PDFs</a></p>
 
                         </div>

@@ -132,15 +132,21 @@ $(document).ready(function()
 	//forgot
 	$("#forgot").click(function() 
 	{
-		var emailer	 = $("#emailer").val();
-		$("#forgotModalCenter").modal();
+		var fgeml	 = $("#fgeml").val();
 
-	$.ajax
+		if(fgeml == "" || fgeml == null) {
+
+			$('#msg').html("Please insert your email");		
+		} else {
+
+			$('#msg').html("Loading...Please Wait!");		
+
+			$.ajax
 	(
 	{
 		type 		:  'post',
-		url			:  'https://pediaplus.com.ng/functions/init.php',
-		data 		:  {emailer:emailer},
+		url			:  'functions/init.php',
+		data 		:  {fgeml:fgeml},
 		success 	:  function(data)
 		{
 			$('#msg').html(data);
@@ -148,6 +154,9 @@ $(document).ready(function()
 	}
 		)
 
+		}
+	
+		$("#exampleModalCenter").modal();
 })
 
 		//reset

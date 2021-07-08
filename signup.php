@@ -54,7 +54,7 @@
                             <div class="col-md-6 mt-4">
                                 <label for="email">Telephone</label>
                                 <input type="number" id="tel" class="form-control"
-                                    placeholder="Input your email address">
+                                    placeholder="Input your telephone number">
                             </div>
                         </div>
 
@@ -62,7 +62,7 @@
                             <div class="col-md-12 mt-4">
                                 <label for="subject">Institution</label>
                                 <input type="text" id="inst" class="form-control"
-                                    placeholder="Input your telephone number">
+                                    placeholder="Input your institution name">
                             </div>
                         </div>
 

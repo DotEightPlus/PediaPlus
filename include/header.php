@@ -68,7 +68,14 @@
                                    <li><a href="./pdf"><span><b>Download PDF</b></span></a></li>
                                    <li><a href="./donate"><span><b>Donate PDF</b></span></a></li>
                                    <li><a href="#"><span><b>Take a Test</b></span></a></li>
-                                   <li><a href="./signup"><span><b>Sign Up</b></span></a></li>
+                                   <?php
+                                   if(isset($_SESSION['login'])) {
+                                       echo '<li><a style="color: #000;" href="./profile"><span><b>My Profile</b></span></a></li>';
+                                   } else {
+                                      echo '<li><a href="./signup"><span><b>Sign Up</b></span></a></li>'; 
+                                   }
+                                   ?>
+
                                </ul>
                            </nav>
                        </div>

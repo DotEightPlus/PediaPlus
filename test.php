@@ -3,4 +3,4 @@
 session_start();
 
 //echo $_SESSION['result']; 
-echo $GLOBALS['z'];
+echo $_SESSION['login'];
