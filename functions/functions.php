@@ -164,11 +164,12 @@ function register($fname, $tel, $email, $uname, $pword, $inst) {
 $sql = "INSERT INTO signup(`id`, `fname`, `usname`, `email`, `pword`, `datereg`, `active`, `tel`, `inst`, `activator`)";
 $sql.= " VALUES('1', '$fnam', '$unam', '$emai', '$pwor', '$datereg', '0', '$tel', '$inst', '$activator')";
 $result = query($sql);
-confirm($result);
 
 //redirect to verify function
 $subject = "VERIFY YOUR EMAIL";
-$link = "";
+$link 	 = "https://dotpedia.com.ng/./activate?vef=".$activator;
+
+$_SESSION['usemail'] = $email;
 
 mail_mailer($email, $activator, $subject, $link);
 
@@ -196,8 +197,7 @@ function mail_mailer($email, $activator, $subject, $link) {
 
     $logo = 'https://teensyouths.com.ng/img/2.png';
     $url  = 'https://teensyouths.com.ng';
-    $link = 'https://teensyouths.com.ng/./';
-
+	
 	$body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>TeensYouths.. Let the revolution begin</title></head><link rel='stylesheet' href='https://teensyouths.com.ng/css/bootstrap.min.css'><body style='text-align: center;'>";
 	$body .= "<section style='margin: 30px; margin-top: 50px ; background: #c92f2f; color: white;'>";
 	$body .= "<img style='margin-top: 35px' src='{$logo}' alt='TeensYouths'>";
@@ -212,7 +212,6 @@ function mail_mailer($email, $activator, $subject, $link) {
   </tr>
   <tr style="border: 1px solid #f9f9ff;">
     <td style="border: 1px solid #f9f9ff;">'.$to.'</td>
-    <td style="border: 1px solid #f9f9ff;">'.date('D, M d, Y h:i:sa', strtotime($date)).'</td>
   </tr>
 </table><br/>';
 	$body .= "<p style='margin-left: 45px; padding-bottom: 80px; text-align: left;'>Do not bother replying this email. This is a virtual email</p>";

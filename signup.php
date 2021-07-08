@@ -1,3 +1,4 @@
+<?php include("functions/init.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,12 +78,18 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
 
-                            <button type="button" data-aos="fade-up" data-aos-delay="100"
-                                class="btn btn-primary btn-pill btnnt float-left" id="sub">Create A Free
-                                Account</button>
+                        <div class="mt-5">
+                            <p class="text-center font-weight-bold"><a style="color: #ff0000; cursor: pointer;"
+                                    id="sub">Signup
+                                    Now
+                                </a>&nbsp; |
+                                &nbsp;<a href="./signin" style="color: #000;"> Have an
+                                    Account?</a></p>
                         </div>
+
+
+
 
                     </form>
                 </div>
@@ -134,7 +141,7 @@
         backDelay: 400,
         startDelay: 400,
         loop: false,
-        showCursor: false
+        showCursor: true
     });
     </script>
 

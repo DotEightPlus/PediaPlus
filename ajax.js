@@ -70,7 +70,7 @@ $(document).ready(function()
     data        :  {fname:fname,tel:tel,email:email,user:user,pword:pword,cpword:cpword,inst:inst},
     success     :  function(data)
     {
-        $('#msg').text(data);
+        $('#msg').html(data);
     }
 }
     )
