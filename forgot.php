@@ -37,7 +37,7 @@ include("functions/init.php");
                 <div class="col-md-12">
                     <form>
                         <div class="row form-group">
-                            <div class="col-md-6 mt-4">
+                            <div class="col-md-12 mt-4">
                                 <label for="username">Input Email</label>
                                 <input type="text" id="fgeml" class="form-control"
                                     placeholder="Input your registered email">
