@@ -363,4 +363,48 @@ if(isset($_POST['fgpword']) && isset($_POST['fgcpword']) && isset($_POST['act'])
 	echo 'Loading...Please Wait!';
 	echo '<script>window.location.href ="./updated"</script>';
 }
+
+
+
+
+/** UPLOAD PROFILE PICTURE **/
+if (!empty($_FILES["fle"]["name"])) {
+	
+	$target_dir = "../images/profilepix/";
+	$target_file =  basename($_FILES["fle"]["name"]);
+	$targetFilePath = $target_dir . $target_file;
+	$uploadOk = 1;
+	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+	   
+		// Allow certain file formats
+	if($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png") {
+		echo "Sorry, this image format is not allowed";
+		$uploadOk = 0;
+	} else {
+	// Check if $uploadOk is set to 0 by an error
+	if ($uploadOk == 0) {
+	   echo "Sorry, your profile picture was not uploaded.";
+	// if everything is ok, try to upload file
+	} else {
+	   
+	   move_uploaded_file($_FILES["fle"]["tmp_name"], $targetFilePath);
+	   img_prod($target_file);
+
+	  echo 'Loading...Please Wait!';
+	  echo '<script>window.location.href ="./profile"</script>';
+}
+}	    	
+}
+
+
+
+/** UPDATE PROFILE PICTURE SCRIPT **/
+function img_prod($target_file) {
+
+	$proid    = $_SESSION['login'];
+
+	$sql = "UPDATE signup SET `pix` = '$target_file' WHERE `usname` = '$proid'";
+	$res = query($sql);
+}
 ?>

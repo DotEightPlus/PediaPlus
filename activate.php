@@ -21,7 +21,7 @@ if(!isset($_GET['vef'])) {
     $fnam = $row['usname'];
    
     //update active to 1
-    $ssl = "UPDATE `signup` SET `active` = '1', `activator` = '', `pdfcredit` = '5' WHERE `activator` = '$data'";
+    $ssl = "UPDATE `signup` SET `active` = '1', `activator` = '', `pdfcredit` = '5', `point` = '0', `withdraw` = '0' WHERE `activator` = '$data'";
     $res = query($ssl);
 
     } else {

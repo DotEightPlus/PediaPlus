@@ -5,19 +5,12 @@ if(!isset($_SESSION['login'])) {
     redirect("./signin");
     
 } else {
-    
+
     $data = $_SESSION['login'];
-    $sql  = "SELECT * FROM signup WHERE `usname` = '$data'";
-    $rsl  = query($sql);
+    $sql = "SELECT * FROM signup WHERE `usname` = '$data'";
+    $rsl = query($sql);
+    $row = mysqli_fetch_array($rsl);
     
-    if(row_count($rsl) == 1) {
-        
-        $row = mysqli_fetch_array($rsl);
-
-    } else {
-
-        redirect("./signin");
-    }
 }
 ?>
 <!DOCTYPE html>
@@ -198,7 +191,7 @@ if(!isset($_SESSION['login'])) {
                                 <label class="text-black" for="title">SELECT FILE</label>
                                 <input style="background: #FFE9E6; color: #fff; border-color: #fff" type="file"
                                     id="psfile" class="form-control" placeholder="e.g GST 101" required>
-                                <p id="msg"></p>
+                                <p style="color: red;" id="msg"></p>
                             </div>
 
                         </div>
@@ -249,6 +242,7 @@ if(!isset($_SESSION['login'])) {
     </script>
 
     <script src="js/main.js"></script>
+    <script src="ajax.js"></script>
 
     </body>
 

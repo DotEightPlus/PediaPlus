@@ -228,10 +228,10 @@ $("#pupl").click(function () {
     fd.append("fle", files);
 
     if (files == null || files == "") {
-      $("#msg").html("Kindly select a picture");
+      $("#msg").text("Kindly select a picture");
     } else {
 
-    	 $("#msg").html("Loading.. Make sure you have a strong internet connection");
+    	 $("#msg").text("Loading.. Make sure you have a strong internet connection");
 
       $.ajax({
         type: "post",

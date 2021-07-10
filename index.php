@@ -34,53 +34,7 @@
 
 
 
-    <div class="block-quick-info-2">
-        <div class="container">
-            <div class="block-quick-info-2-inner">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
-                        <div class="d-flex quick-info-2">
-                            <span class="icon icon-facebook mr-3"></span>
-                            <div class="text">
-                                <strong class="d-block heading">Facebook</strong>
-                                <span class="excerpt"><a href="https://m.me/mydotpedia">Let`s Connect</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
-                        <div class="d-flex quick-info-2">
-                            <span class="icon icon-phone mr-3"></span>
-                            <div class="text">
-                                <strong class="d-block heading">Need Help</strong>
-                                <span class="excerpt"><a href="tel: +2348103171902">+234 810 317 1902</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
-                        <div class="d-flex quick-info-2">
-                            <span class="icon icon-envelope mr-3"></span>
-                            <div class="text">
-                                <strong class="d-block heading">Send us a message</strong>
-                                <span class="excerpt"><a
-                                        href="mailto: pdf@dotpedia.com.ng">pdf@dotpedia.com.ng</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
-                        <div class="d-flex quick-info-2">
-                            <span class="icon icon-whatsapp mr-3"></span>
-                            <div class="text">
-                                <strong class="d-block heading">WhatsApp</strong>
-                                <span class="excerpt"><a
-                                        href="https://wa.me/2348103171902?text=Hello%2c%20I`m%20_____%0AI%20need%20help%20with%20DotPedia"
-                                        target="_blank">Chat us up</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <div class="block-services-1 py-5">
         <div class="container">
@@ -200,6 +154,54 @@
                     <p class="mb-0"><a href="./signup"
                             class="btn btn-outline-white text-white btn-md btn-pill px-5 font-weight-bold btn-block">Create
                             an Account Now</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block-quick-info-2">
+        <div class="container">
+            <div class="block-quick-info-2-inner">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
+                        <div class="d-flex quick-info-2">
+                            <span class="icon icon-facebook mr-3"></span>
+                            <div class="text">
+                                <strong class="d-block heading">Facebook</strong>
+                                <span class="excerpt"><a href="https://m.me/mydotpedia">Let`s Connect</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
+                        <div class="d-flex quick-info-2">
+                            <span class="icon icon-phone mr-3"></span>
+                            <div class="text">
+                                <strong class="d-block heading">Need Help</strong>
+                                <span class="excerpt"><a href="tel: +2348103171902">+234 810 317 1902</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
+                        <div class="d-flex quick-info-2">
+                            <span class="icon icon-envelope mr-3"></span>
+                            <div class="text">
+                                <strong class="d-block heading">Send us a message</strong>
+                                <span class="excerpt"><a
+                                        href="mailto: pdf@dotpedia.com.ng">pdf@dotpedia.com.ng</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
+                        <div class="d-flex quick-info-2">
+                            <span class="icon icon-whatsapp mr-3"></span>
+                            <div class="text">
+                                <strong class="d-block heading">WhatsApp</strong>
+                                <span class="excerpt"><a
+                                        href="https://wa.me/2348103171902?text=Hello%2c%20I`m%20_____%0AI%20need%20help%20with%20DotPedia"
+                                        target="_blank">Chat us up</a></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
