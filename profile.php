@@ -176,7 +176,7 @@ if(!isset($_SESSION['login'])) {
     <?php include("include/footer.php"); ?>
     </div>
 
-    <!-- Modal -->
+    <!-- UPLOAD PROFILE PICTURE MODAL -->
     <div class="modal fade" id="profilePicModal">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div style="background: #FFE9E6; color: #ff0000; border-radius: 0px 40px 0px 40px; z-index: 999"
