@@ -91,7 +91,8 @@ if(!isset($_SESSION['login'])) {
                                     Funds</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
 
                         <p class="mb-0 font-weight-bold">Total Referals</p>
-                        <p class="mb-4"><?php echo number_format($row['withdraw']) ?></a> - <a href="./signup"
+                        <p class="mb-4"><?php echo number_format($row['withdraw']) ?></a> - <a data-toggle="modal"
+                                data-target="#refLink" href="#"
                                 class="d-inline-flex align-items-center block-service-1-more"><span>Share Referal
                                     Link</span>
                                 <span class="icon-keyboard_arrow_right icon"></span></a>
@@ -204,6 +205,45 @@ if(!isset($_SESSION['login'])) {
                             <div class="col-md-12">
                                 <input style="background: #Fff; color: #ff0000" type="button" id=pupl
                                     value="Upload Picture" class="btn btn-pill btn-md"><br />
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- SHARE REFERAL LINK -->
+    <div class="modal fade" id="refLink">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div style="background: #FFE9E6; color: #ff0000; border-radius: 0px 40px 0px 40px; z-index: 999"
+                class="modal-content">
+                <div class="modal-body">
+                    <form action="mail.php" method="post">
+
+                        <h3 class="text-center">Refer a Friend</h3>
+                        <br />
+                        <div class="row form-group">
+
+                            <div class="col-md-12">
+                                <label class="text-black" for="subject">Referral Link</label>
+                                <input type="text" value="https://dotpedia.com.ng/<?php echo $data ?>"
+                                    class="form-control" disabled>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row form-group">
+                            <div class="col-lg-4">
+                                <p id="copy"
+                                    style="background: #Fff; color: #ff0000; border-radius: 40px 40px 40px 40px;"
+                                    class="mb-0 btn font-weight-bold btn-block">Copy Referral
+                                    Link</p>
                             </div>
                         </div>
 

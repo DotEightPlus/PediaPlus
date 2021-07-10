@@ -246,4 +246,11 @@ $("#pupl").click(function () {
     }
 })
 
+
+/** COPY REFERRAL LINK TO CLIPBOARD */
+$("#copy").click(function() 
+{
+
+	$('#copy').text("Copied!");
+})
 })
