@@ -189,8 +189,10 @@ if(!isset($_SESSION['login'])) {
                         <div class="row form-group">
                             <div class="col-md-12 mb-3 mb-md-0">
                                 <label class="text-black" for="title">SELECT FILE</label>
-                                <input style="background: #FFE9E6; color: #fff; border-color: #fff" type="file"
-                                    id="psfile" class="form-control" placeholder="e.g GST 101" required>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="psfile">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
                                 <p style="color: red;" id="msg"></p>
                             </div>
 
@@ -243,7 +245,13 @@ if(!isset($_SESSION['login'])) {
 
     <script src="js/main.js"></script>
     <script src="ajax.js"></script>
-
+    <!-- bs-custom-file-input -->
+    <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        bsCustomFileInput.init();
+    });
+    </script>
     </body>
 
 </html>
