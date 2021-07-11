@@ -108,7 +108,7 @@ if(isset($_SESSION['login'])) {
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div style="background: #FFE9E6; color: #ff0000;" class="modal-content">
+            <div style="background: #FFE9E6; color: #ff0000; border-radius: 0px 40px 0px 40px;" class="modal-content">
                 <div class="modal-body">
                     <div id="msg" class="text-center"></div>
                 </div>

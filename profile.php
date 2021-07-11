@@ -17,7 +17,7 @@ if(!isset($_SESSION['login'])) {
 <html lang="en">
 
 <head>
-    <title>PediaPlus | Profile</title>
+    <title>DotPedia | Profile</title>
     <?php include("include/header.php");
     
     if($row['pix'] == ''){
@@ -231,7 +231,7 @@ if(!isset($_SESSION['login'])) {
 
                             <div class="col-md-12">
                                 <label class="text-black" for="subject">Referral Link</label>
-                                <input type="text" value="https://dotpedia.com.ng/<?php echo $data ?>"
+                                <input type="text" value="https://dotpedia.com.ng/refer?link=<?php echo $data ?>"
                                     class="form-control" disabled>
                             </div>
                         </div>
@@ -239,14 +239,27 @@ if(!isset($_SESSION['login'])) {
 
 
                         <div class="row form-group">
-                            <div class="col-lg-4">
+                            <div class="col-lg-12">
                                 <p id="copy"
                                     style="background: #Fff; color: #ff0000; border-radius: 40px 40px 40px 40px;"
-                                    class="mb-0 btn font-weight-bold btn-block">Copy Referral
+                                    class="mb-0 btn font-weight-bold btn-block justify-content-center">Copy Referral
                                     Link</p>
                             </div>
                         </div>
 
+                        <div class="col-md-12 mb-5 mb-lg-0 col-lg-12 text-center">
+                            <a data-media="images/ico.png"
+                                href="https://facebook.com/sharer.php?u=https://dotpedia.com.ng/refer?link=<?php echo $data ?>"
+                                target="_blank" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+
+                            <a data-action="share/whatsapp/share" data-media="images/ico.png"
+                                href="https://api.whatsapp.com/send?text=https://dotpedia.com.ng/refer?link=<?php echo $data ?>"
+                                target="_blank" class="pl-3 pr-3"><span class="icon-whatsapp"></span></a>
+
+                            <a data-media="images/ico.png"
+                                href="https://twitter.com/home?status=https://dotpedia.com.ng/refer?link=<?php echo $data ?>"
+                                target="_blank" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                        </div>
 
                     </form>
                 </div>
