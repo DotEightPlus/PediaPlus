@@ -252,5 +252,9 @@ $("#copy").click(function()
 {
 
 	$('#copy').text("Copied!");
+
+	$("#refLink").on('hidden.bs.modal', function(){
+		$('#copy').text("Copy Referral Link");;
+	  });
 })
 })

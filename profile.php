@@ -231,8 +231,9 @@ if(!isset($_SESSION['login'])) {
 
                             <div class="col-md-12">
                                 <label class="text-black" for="subject">Referral Link</label>
-                                <input type="text" value="https://dotpedia.com.ng/refer?link=<?php echo $data ?>"
-                                    class="form-control" disabled>
+                                <input id="myInput" type="text"
+                                    value="https://dotpedia.com.ng/signup?link=<?php echo $data ?>"
+                                    class="form-control">
                             </div>
                         </div>
 
@@ -242,7 +243,9 @@ if(!isset($_SESSION['login'])) {
                             <div class="col-lg-12">
                                 <p id="copy"
                                     style="background: #Fff; color: #ff0000; border-radius: 40px 40px 40px 40px;"
-                                    class="mb-0 btn font-weight-bold btn-block justify-content-center">Copy Referral
+                                    class="mb-0 btn font-weight-bold btn-block justify-content-center"
+                                    onclick="myFunction()">Copy
+                                    Referral
                                     Link</p>
                             </div>
                         </div>
@@ -304,6 +307,15 @@ if(!isset($_SESSION['login'])) {
     $(document).ready(function() {
         bsCustomFileInput.init();
     });
+    </script>
+    <script>
+    //copy text to clipboard
+    function myFunction() {
+        var copyText = document.getElementById("myInput");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+    }
     </script>
     </body>
 
