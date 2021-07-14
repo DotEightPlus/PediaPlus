@@ -121,32 +121,46 @@ if(!isset($_SESSION['login'])) {
 
                         <h1>Donate PDF</h1>
                         <br />
+
                         <div class="row form-group">
-                            <div class="col-md-6 mb-3 mb-md-0">
+
+                            <div class="col-md-12 mb-3 mb-md-4">
+                                <label class="text-black" for="inst">Institution</label>
+                                <input type="text" id="inst" name="inst"
+                                    placeholder="e.g Federal University Oye Ekiti.." class="form-control" required>
+                            </div>
+
+                            <div class="col-md-6 mb-3 mb-md-4">
+                                <label class="text-black" for="typ">Institution Type</label>
+                                <select name="typ" id="typ" class="custom-select form-control">
+                                    <option name="typ" id="typ">University</option>
+                                    <option name="typ" id="typ">Polytechnic</option>
+                                    <option name="typ" id="typ">College of Education</option>
+                                    <option name="typ" id="typ">Technical Schools</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3 mb-md-4">
                                 <label class="text-black" for="title">PDF Title</label>
                                 <input type="text" id="title" class="form-control" placeholder="e.g GST 101" required>
                             </div>
-                            <div class="col-md-6">
+
+
+                            <div class="col-md-12 mb-3 mb-md-4">
                                 <label class="text-black" for="lname">Faculty/College</label>
                                 <input type="text" id="fcg" name="fcg"
                                     placeholder="e.g Faculty of Engineering, College of Science" class="form-control"
                                     required>
                             </div>
-                        </div>
 
-                        <div class="row form-group">
-
-                            <div class="col-md-12">
+                            <div class="col-md-12 mb-3 mb-md-4">
                                 <label class="text-black" for="email">Department</label>
                                 <input type="text" id="dept" name="dept"
                                     placeholder="e.g Electrical Engineering, Mass Communication..." class="form-control"
                                     required>
                             </div>
-                        </div>
 
-                        <div class="row form-group">
-
-                            <div class="col-md-12">
+                            <div class="col-md-12 mb-3 mb-md-4">
                                 <label class="text-black" for="subject">Level</label>
                                 <select name="level" id="level" class="custom-select form-control">
                                     <option name="level" id="level">100 Level</option>
@@ -154,21 +168,19 @@ if(!isset($_SESSION['login'])) {
                                     <option name="level" id="level">300 Level</option>
                                     <option name="level" id="level">400 Level</option>
                                     <option name="level" id="level">500 Level</option>
+                                    <option name="level" id="level">ND 1</option>
+                                    <option name="level" id="level">ND 2</option>
+                                    <option name="level" id="level">HND 1</option>
+                                    <option name="level" id="level">HND 2</option>
+                                    <option name="level" id="level">NCE</option>
                                 </select>
                             </div>
-                        </div>
 
-
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <input type="submit" value="Send Message"
-                                    class="btn btn-pill btn-primary btn-md text-white"><br />
+                            <div class="col-md-12 mb-3 mb-md-0">
+                                <input type="submit" value="Upload PDF" style="background: #FFE9E6; color: #ff0000;"
+                                    class="btn btn-pill btn-primary btn-md"><br />
                             </div>
-                            <div class="btn fb-send-to-messenger test-fb-send-to-messenger"
-                                messenger_app_id="1678638095724206" page_id="115455323505629" data-ref="" color="white"
-                                size="xlarge"> </div>
                         </div>
-
 
                     </form>
                 </div>
