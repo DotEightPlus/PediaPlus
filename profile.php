@@ -177,7 +177,8 @@ if(!isset($_SESSION['login'])) {
                             </div>
 
                             <div class="col-md-12 mb-3 mb-md-0">
-                                <input type="submit" value="Upload PDF" style="background: #FFE9E6; color: #ff0000;"
+                                <input type="button" id="donatenow" value="Upload PDF"
+                                    style="background: #FFE9E6; color: #ff0000;"
                                     class="btn btn-pill btn-primary btn-md"><br />
                             </div>
                         </div>
@@ -198,7 +199,7 @@ if(!isset($_SESSION['login'])) {
             <div style="background: #FFE9E6; color: #ff0000; border-radius: 0px 40px 0px 40px; z-index: 999"
                 class="modal-content">
                 <div class="modal-body">
-                    <form action="mail.php" method="post">
+                    <form method="post">
 
                         <h3 class="text-center">Update Profile Picture</h3>
                         <br />
@@ -280,6 +281,19 @@ if(!isset($_SESSION['login'])) {
                         </div>
 
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Donate PDF Modal -->
+    <div class="modal fade" id="donateModalCenter">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div style="background: #FFE9E6; color: #ff0000; border-radius: 0px 40px 0px 40px;" class="modal-content">
+                <div class="modal-body">
+                    <div id="dntmsg" class="text-center"></div>
                 </div>
             </div>
         </div>

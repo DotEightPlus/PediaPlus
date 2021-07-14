@@ -159,7 +159,7 @@ $(document).ready(function()
 		$("#exampleModalCenter").modal();
 })
 
-		//reset
+	//reset
 	$("#reset").click(function() 
 	{
 		var fgpword	 	= $("#fgpword").val();
@@ -247,6 +247,9 @@ $("#pupl").click(function () {
 })
 
 
+
+
+
 /** COPY REFERRAL LINK TO CLIPBOARD */
 $("#copy").click(function() 
 {
@@ -256,5 +259,65 @@ $("#copy").click(function()
 	$("#refLink").on('hidden.bs.modal', function(){
 		$('#copy').text("Copy Referral Link");;
 	  });
+})
+
+
+
+
+
+/** DONATE PDFs **/
+$("#donatenow").click(function() 
+	{
+		var inst	 	= $("#inst").val();
+		var typ 	 	= $("#typ").val();
+		var title  	 	= $("#title").val();
+		var fcg 	 	= $("#fcg").val();
+		var dept 	 	= $("#dept").val();
+		var level  	 	= $("#level").val();
+
+		if(inst == '' || inst == null) {
+
+			$('#dntmsg').html("Please input your institution name");
+
+		} else {
+
+		if(title == '' || title == null) {
+
+			$('#dntmsg').html("Your PDF title cannot be empty");
+
+		} else {
+
+		if(fcg == '' || fcg == null) {
+
+			$('#dntmsg').html("Kindly input the PDF Faculty or College");
+
+		} else {
+		
+		if(dept == '' || dept == null) {
+
+			$('#dntmsg').html("Kindly input the PDF Department");
+
+		} else {
+
+			$.ajax
+	(
+	{
+		type 		:  'post',
+		url			:  'functions/init.php',
+		data 		:  {inst:inst,typ:typ,title:title,fcg:fcg,dept:dept,level:level},
+		success 	:  function(data)
+		{
+			$('#dntmsg').html(data);
+		}
+	}
+		)
+
+		$("#donateModalCenter").modal();
+
+		}
+		}
+		}
+		}	
+			
 })
 })
