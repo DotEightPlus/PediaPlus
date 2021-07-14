@@ -407,4 +407,11 @@ function img_prod($target_file) {
 	$sql = "UPDATE signup SET `pix` = '$target_file' WHERE `usname` = '$proid'";
 	$res = query($sql);
 }
+
+
+
+if(isset($_POST['formData'])) {
+
+	echo $_POST['formData'];
+}
 ?>

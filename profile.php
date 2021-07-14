@@ -117,7 +117,7 @@ if(!isset($_SESSION['login'])) {
 
 
 
-                    <form method="post" class="p-5 bg-white donatepdf" id="donor">
+                    <form method="post" class="p-5 bg-white donatepdf" id="donor" enctype="multipart/form-data">
 
                         <h1>Donate PDF</h1>
                         <br />
