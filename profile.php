@@ -177,9 +177,8 @@ if(!isset($_SESSION['login'])) {
                             </div>
 
                             <div class="col-md-12 mb-3 mb-md-0">
-                                <input type="button" id="donatenow" value="Upload PDF"
-                                    style="background: #FFE9E6; color: #ff0000;"
-                                    class="btn btn-pill btn-primary btn-md"><br />
+                                <button type="button" id="donatenow" style="background: #FFE9E6; color: #ff0000;"
+                                    class="btn btn-pill btn-primary btn-md">Upload PDF</button><br />
                             </div>
                         </div>
 

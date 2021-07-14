@@ -311,13 +311,13 @@ $("#donatenow").click(function()
 		}
 	}
 		)
-
-		$("#donateModalCenter").modal();
-
+		
 		}
 		}
 		}
 		}	
+
+		$("#donateModalCenter").modal();
 			
 })
 })
