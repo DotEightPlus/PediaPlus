@@ -210,9 +210,9 @@ h5,
 }
 
 .btn.btn-primary:hover {
-  color: #000;
-  background: #ffe9e6;
-  border: #ffe9e6;
+  color: #fff;
+  background: rgba(255, 0, 0, 0.5);
+  border:1px solid #fff;
 }
 
 .btn.btn-outline-primary {

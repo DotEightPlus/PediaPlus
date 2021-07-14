@@ -117,7 +117,7 @@ if(!isset($_SESSION['login'])) {
 
 
 
-                    <form action="mail.php" method="post" class="p-5 bg-white donatepdf">
+                    <form method="post" class="p-5 bg-white donatepdf" id="donor">
 
                         <h1>Donate PDF</h1>
                         <br />
@@ -127,34 +127,37 @@ if(!isset($_SESSION['login'])) {
                                 <input type="text" id="title" class="form-control" placeholder="e.g GST 101" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="text-black" for="lname">Last Name</label>
-                                <input type="text" id="lname" name="lname" class="form-control" required>
+                                <label class="text-black" for="lname">Faculty/College</label>
+                                <input type="text" id="fcg" name="fcg"
+                                    placeholder="e.g Faculty of Engineering, College of Science" class="form-control"
+                                    required>
                             </div>
                         </div>
 
                         <div class="row form-group">
 
                             <div class="col-md-12">
-                                <label class="text-black" for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
+                                <label class="text-black" for="email">Department</label>
+                                <input type="text" id="dept" name="dept"
+                                    placeholder="e.g Electrical Engineering, Mass Communication..." class="form-control"
+                                    required>
                             </div>
                         </div>
 
                         <div class="row form-group">
 
                             <div class="col-md-12">
-                                <label class="text-black" for="subject">Subject</label>
-                                <input type="subject" id="subject" name="subject" class="form-control" required>
+                                <label class="text-black" for="subject">Level</label>
+                                <select name="level" id="level" class="custom-select form-control">
+                                    <option name="level" id="level">100 Level</option>
+                                    <option name="level" id="level">200 Level</option>
+                                    <option name="level" id="level">300 Level</option>
+                                    <option name="level" id="level">400 Level</option>
+                                    <option name="level" id="level">500 Level</option>
+                                </select>
                             </div>
                         </div>
 
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="text-black" for="message">Message</label>
-                                <textarea name="message" id="message" cols="30" rows="7" class="form-control"
-                                    placeholder="Write your notes or questions here..." required></textarea>
-                            </div>
-                        </div>
 
                         <div class="row form-group">
                             <div class="col-md-12">

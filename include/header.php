@@ -65,9 +65,11 @@
 
                                <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block font-weight-bold">
                                    <li><a href="./"><span><b>Home</b></span></a></li>
-                                   <li><a href="./pdf"><span><b>Download PDF</b></span></a></li>
-                                   <li><a href="./profile#donor"><span><b>Donate PDF</b></span></a></li>
-                                   <li><a href="#"><span><b>Take a Test</b></span></a></li>
+                                   <li><a href="./pdf"><span><b>PDF(s)</b></span></a></li>
+                                   <li><a href="./pq"><span><b>Past Questions</b></span></a></li>
+                                   <li><a href="./pq"><span><b>Schools</b></span></a></li>
+                                   <li><a href="./tutors"><span><b>Tutors</b></span></a></li>
+                                   <!--<li><a href="#"><span><b>Ads Center</b></span></a></li>-->
                                    <?php
                                    if(isset($_SESSION['login'])) {
                                        echo '<li><a style="color: #000;" href="./profile"><span><b>My Profile</b></span></a></li>';
