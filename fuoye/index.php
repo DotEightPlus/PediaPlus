@@ -147,7 +147,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-7 mb-4 mb-lg-0">
-                    <h2 class="mb-3 mt-0 text-white">Free 5 PDF Credits for First Commers</h2>
+                    <h2 class="mb-3 mt-0 text-white">Free 5 PDF Credits for First Comers</h2>
                     <p class="mb-0 text-white lead"></p>
                 </div>
                 <div class="col-lg-4">

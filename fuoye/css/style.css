@@ -6,6 +6,13 @@ body {
   font-size: 1rem;
 }
 
+@media print {
+  html,
+  body {
+    display: none; /* hide whole page */
+  }
+}
+
 ::-moz-selection {
   background: #000;
   color: #fff;
