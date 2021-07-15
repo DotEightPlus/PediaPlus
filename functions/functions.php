@@ -433,31 +433,55 @@ function global_check() {
 
 if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && isset($_POST['fcg']) && isset($_POST['dept']) && isset($_POST['level'])) {
 
-	$inst 	= escape($_POST['inst']);
-	$typ 	= escape($_POST['typ']);
-	$title 	= escape(clean($_POST['title']));
-	$fcg	= escape(clean($_POST['fcg']));
-	$dept   = escape(clean($_POST['dept']));
-	$level  = escape($_POST['level']);
+	$inst 	= $_POST['inst'];
+	$typ 	= $_POST['typ'];
+	$title 	= $_POST['title'];
+	$fcg	= $_POST['fcg'];
+	$dept   = $_POST['dept'];
+	$level  = $_POST['level'];
 
 	$upl    = $_SESSION['login'];
-	$date   = date("Y-m-d h:i:sa");
+	$date   = date("Y-M-D h:i:sa");
 
 	//check if the uploader is verified
-	global_check();
-	if($row['vrf'] == 'Yes') {
+	$sql = "SELECT * FROM signup WHERE `usname` = '$upl'";
+	$rsl = query($sql);
+
+	if(row_count($rsl) == '') {
+
+		redirect("./signup");
 		
+	} else {
+
+		$row = mysqli_fetch_array($rsl);
+
+	
+	
+	if($row['vrf'] == 'Yes') {
+				
 		//approve PDF and upload details
 		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `date`, `approve`)";
-		$ssl.= " VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '$date', 'Yes')";
+		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '$date', 'Yes')";
 		$result = query($ssl);
+
+		$_SESSION['uploaded'] = "Your PDF was approved and uploaded successfully";
+
+		echo 'Loading...Please Wait!';
+		echo '<script>window.location.href ="./profile"</script>';
 
 	} else {
 
 		//disapprove pdf
-		echo '';
+		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `date`, `approve`)";
+		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '$date', 'No')";
+		$result = query($ssl);
+
+		$_SESSION['uploaded'] = "Your PDF has been uploaded. A mail will be sent to you once your PDF is reviewed and approved.";
+		
+		echo 'Loading...Please Wait!';
+		//echo '<script>window.location.href ="./profile"</script>';
 	}
 
-	
+}
 }
 ?>
