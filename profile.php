@@ -59,8 +59,22 @@ if(!isset($_SESSION['login'])) {
 
                     <div class="p-4 mb-3 bg-white">
                         <p class="mb-0 font-weight-bold">Full Name</p>
-                        <p class="mb-4"><?php echo $row['fname'] ?> <i style="color: #ff0000"
-                                class="icon-check-circle"></i></p>
+                        <p class="mb-4"><?php echo $row['fname'] ?>
+
+                            <!-- verification tick --->
+                            <?php 
+
+                            global_check();                        
+                            
+                            if($row['vrf'] == 'Yes') {
+                                echo '<i style="color: #ff0000" class="icon-check-circle"></i>';
+
+                            } else {
+
+                                echo '';
+                            }
+                            ?>
+                        </p>
 
                         <p class="mb-0 font-weight-bold">Username</p>
                         <p class="mb-4"><?php echo $row['usname'] ?></a></p>
@@ -125,13 +139,13 @@ if(!isset($_SESSION['login'])) {
                         <div class="row form-group">
 
                             <div class="col-md-12 mb-3 mb-md-4">
-                                <label class="text-black" for="inst">Institution</label>
+                                <label class="text-black font-weight-bold" for="inst">Institution</label>
                                 <input type="text" id="inst" name="inst"
                                     placeholder="e.g Federal University Oye Ekiti.." class="form-control" required>
                             </div>
 
                             <div class="col-md-6 mb-3 mb-md-4">
-                                <label class="text-black" for="typ">Institution Type</label>
+                                <label class="text-black font-weight-bold" for="typ">Institution Type</label>
                                 <select name="typ" id="typ" class="custom-select form-control">
                                     <option name="typ" id="typ">University</option>
                                     <option name="typ" id="typ">Polytechnic</option>
@@ -141,27 +155,27 @@ if(!isset($_SESSION['login'])) {
                             </div>
 
                             <div class="col-md-6 mb-3 mb-md-4">
-                                <label class="text-black" for="title">PDF Title</label>
+                                <label class="text-black font-weight-bold" for="title">PDF Title</label>
                                 <input type="text" id="title" class="form-control" placeholder="e.g GST 101" required>
                             </div>
 
 
                             <div class="col-md-12 mb-3 mb-md-4">
-                                <label class="text-black" for="lname">Faculty/College</label>
+                                <label class="text-black font0-weight-bold" for="lname">Faculty/College</label>
                                 <input type="text" id="fcg" name="fcg"
                                     placeholder="e.g Faculty of Engineering, College of Science" class="form-control"
                                     required>
                             </div>
 
                             <div class="col-md-12 mb-3 mb-md-4">
-                                <label class="text-black" for="email">Department</label>
+                                <label class="text-black font-weight-bold" for="email">Department</label>
                                 <input type="text" id="dept" name="dept"
                                     placeholder="e.g Electrical Engineering, Mass Communication..." class="form-control"
                                     required>
                             </div>
 
                             <div class="col-md-12 mb-3 mb-md-4">
-                                <label class="text-black" for="subject">Level</label>
+                                <label class="text-black font-weight-bold" for="subject">Level</label>
                                 <select name="level" id="level" class="custom-select form-control">
                                     <option name="level" id="level">100 Level</option>
                                     <option name="level" id="level">200 Level</option>
@@ -175,6 +189,17 @@ if(!isset($_SESSION['login'])) {
                                     <option name="level" id="level">NCE</option>
                                 </select>
                             </div>
+
+
+                            <div class="col-md-12 mb-3 mb-md-4">
+                                <label class="text-black font-weight-bold" for="title">Select File</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="psfile">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                                <p style="color: red;" id="msg"></p>
+                            </div>
+
 
                             <div class="col-md-12 mb-3 mb-md-0">
                                 <button type="button" id="donatenow" style="background: #FFE9E6; color: #ff0000;"

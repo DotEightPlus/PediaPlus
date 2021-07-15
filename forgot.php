@@ -10,8 +10,7 @@ if(isset($_SESSION['login'])) {
 
 <head>
     <title>DotPedia | Forgot Password</title>
-    <meta name="description" content="DotPedia | Forgot Password">
-    <meta name="keywords" content="DotPedia,Forgot Password">
+
     <?php include("include/header.php"); ?>
 
     <div class="site-blocks-cover overlay" style="background-image: url(images/bg_4.jpg);" data-aos="fade"

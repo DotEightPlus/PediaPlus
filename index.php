@@ -6,6 +6,11 @@
     <title>DotPedia</title>
     <meta name="description" content="DotPedia | Home">
     <meta name="keywords" content="DotPedia, Pdf">
+    <meta property="og:title" content="DotPedia" />
+    <meta property="og:image" content="images/ico.png" />
+    <meta property="og:url" content="https://dotpedia.com.ng" />
+    <meta property="og:site_name" content="DotPedia from DotEightPlus" />
+    <meta property="og:description" content="Read, Earn, Share" />
     <?php include("include/header.php"); ?>
 
     <div class="site-blocks-cover overlay" style="background-image: url(images/bg_4.jpg);" data-aos="fade"

@@ -161,8 +161,8 @@ function register($fname, $tel, $email, $uname, $pword, $inst) {
 
 	$activator = token_generator();
 	
-$sql = "INSERT INTO signup(`id`, `fname`, `usname`, `email`, `pword`, `datereg`, `active`, `tel`, `inst`, `activator`)";
-$sql.= " VALUES('1', '$fnam', '$unam', '$emai', '$pwor', '$datereg', '0', '$tel', '$inst', '$activator')";
+$sql = "INSERT INTO signup(`id`, `fname`, `usname`, `email`, `pword`, `datereg`, `active`, `tel`, `inst`, `activator`, `vrf`)";
+$sql.= " VALUES('1', '$fnam', '$unam', '$emai', '$pwor', '$datereg', '0', '$tel', '$inst', '$activator', 'No')";
 $result = query($sql);
 
 //redirect to verify function
@@ -410,8 +410,50 @@ function img_prod($target_file) {
 
 
 
-if(isset($_POST['formData'])) {
+/** GLOBAL CHECK **/
+function global_check() {
 
-	echo $_POST['formData'];
+	$idl = $_SESSION['login'];
+	
+	$sql = "SELECT * FROM signup WHERE `usname` = '$idl'";
+	$rsl = query($sql);
+
+	if(row_count($rsl) == '') {
+
+		redirect("./signup");
+		
+	} else {
+
+		$row = mysqli_fetch_array($rsl);
+
+	}
+	
+}
+
+
+if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && isset($_POST['fcg']) && isset($_POST['dept']) && isset($_POST['level'])) {
+
+	$inst 	= escape($_POST['inst']);
+	$typ 	= escape($_POST['typ']);
+	$title 	= escape(clean($_POST['title']));
+	$fcg	= escape(clean($_POST['fcg']));
+	$dept   = escape(clean($_POST['dept']));
+	$level  = escape($_POST['level']);
+
+	$upl    = $_SESSION['login'];
+
+	//check if the uploader is verified
+	global_check();
+	if($row['vrf'] == 'Yes') {
+		
+		//approve PDF and Insert
+
+	} else {
+
+		//disapprove pdf
+		echo '';
+	}
+
+	
 }
 ?>

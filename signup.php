@@ -11,6 +11,11 @@ if(isset($_SESSION['login'])) {
     <title>DotPedia | Signup</title>
     <meta name="description" content="DotPedia | Signup">
     <meta name="keywords" content="DotPedia, Create a free account">
+    <meta property="og:title" content="DotPedia | Signup" />
+    <meta property="og:image" content="images/ico.png" />
+    <meta property="og:url" content="https://dotpedia.com.ng/signup" />
+    <meta property="og:site_name" content="DotPedia from DotEightPlus" />
+    <meta property="og:description" content="Read, Earn, Share" />
     <?php include("include/header.php"); ?>
 
     <div class="site-blocks-cover overlay" style="background-image: url(images/bg_4.jpg);" data-aos="fade"
