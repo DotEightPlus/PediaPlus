@@ -441,12 +441,16 @@ if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && is
 	$level  = escape($_POST['level']);
 
 	$upl    = $_SESSION['login'];
+	$date   = date("Y-m-d h:i:sa");
 
 	//check if the uploader is verified
 	global_check();
 	if($row['vrf'] == 'Yes') {
 		
-		//approve PDF and Insert
+		//approve PDF and upload details
+		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `date`, `approve`)";
+		$ssl.= " VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '$date', 'Yes')";
+		$result = query($ssl);
 
 	} else {
 
