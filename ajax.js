@@ -169,6 +169,7 @@ $(document).ready(function () {
     }
   });
 
+
   /** COPY REFERRAL LINK TO CLIPBOARD */
   $("#copy").click(function () {
     $("#copy").text("Copied!");
@@ -177,6 +178,9 @@ $(document).ready(function () {
       $("#copy").text("Copy Referral Link");
     });
   });
+
+
+
 
   /** DONATE PDFs **/
   $("#donatenow").click(function () {
@@ -199,6 +203,13 @@ $(document).ready(function () {
           if (dept == "" || dept == null) {
             $("#dntmsg").html("Kindly input the PDF Department");
           } else {
+
+            if (files == null || files == "") {
+              $("#dntmsg").html("Kindly select a file to upload");
+            } else {
+
+              $("#dntmsg").html("Loading.. Make sure you have a strong internet connection");
+
             $.ajax({
               type: "post",
               url: "functions/init.php",
@@ -218,7 +229,27 @@ $(document).ready(function () {
         }
       }
     }
+  }
 
     $("#donateModalCenter").modal();
   });
+
+
+  /** UPLOAD PDF FILE
+  $("#donatnow").click(function () {
+
+
+      $.ajax({
+        type: "post",
+        url: "functions/init.php",
+        data: fd,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+          $("#dntmsg").html(data);
+        },
+      });
+    }
+    $("#donateModalCenter").modal();
+  });**/
 });

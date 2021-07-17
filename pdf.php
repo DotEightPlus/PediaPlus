@@ -1,4 +1,11 @@
-<?php include("functions/init.php"); ?>
+<?php include("functions/init.php");
+
+$sql = "SELECT * FROM pdf";
+$rsl = query($sql);
+
+$row = mysqli_fetch_array($rsl);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,86 +46,18 @@
             <div class="row">
 
                 <div class="col-md-8">
-
+                    <?php 
+                    
+                   ?>
                     <div class="row mb-3 align-items-stretch">
                         <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
                             <div class="h-entry">
-                                <a href="blog-single.html"><img src="images/img_1.jpg"
-                                        alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
                                 <div class="h-entry-inner">
+                                    <a href="blog-single.html"><img src="images/pdff.png" alt="<?php ?>"
+                                            class="img-fluid"></a>
                                     <h2 class="font-size-regular"><a href="blog-single.html">Blog post title for
                                             Physical Therapy</a></h2>
                                     <div class="meta mb-4">by <a href="blog-single.html">Jeff Sheldon</a> <span
-                                            class="mx-2">&bullet;</span> May 5th, 2019</div>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts. </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
-                            <div class="h-entry">
-                                <a href="blog-single.html"><img src="images/img_2.jpg"
-                                        alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-                                <div class="h-entry-inner">
-                                    <h2 class="font-size-regular"><a href="blog-single.html">Blog post title for
-                                            Physical Therapy</a></h2>
-                                    <div class="meta mb-4">by <a href="blog-single.html">Jeff Sheldon</a> <span
-                                            class="mx-2">&bullet;</span> May 5th, 2019</div>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts. </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
-                            <div class="h-entry">
-                                <a href="blog-single.html"><img src="images/img_3.jpg"
-                                        alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-                                <div class="h-entry-inner">
-                                    <h2 class="font-size-regular"><a href="blog-single.html">Blog post title for
-                                            Physical Therapy</a></h2>
-                                    <div class="meta mb-4">by <a href="blog-single.html">Jeff Sheldon</a> <span
-                                            class="mx-2">&bullet;</span> May 5th, 2019</div>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts. </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
-                            <div class="h-entry">
-                                <a href="blog-single.html"><img src="images/img_4.jpg"
-                                        alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-                                <div class="h-entry-inner">
-                                    <h2 class="font-size-regular"><a href="blog-single.html">Blog post title for
-                                            Physical Therapy</a></h2>
-                                    <div class="meta mb-4">by <a href="blog-single.html">Jeff Sheldon</a> <span
-                                            class="mx-2">&bullet;</span> May 5th, 2019</div>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts. </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
-                            <div class="h-entry">
-                                <a href="blog-single.html"><img src="images/img_2.jpg"
-                                        alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-                                <div class="h-entry-inner">
-                                    <h2 class="font-size-regular"><a href="blog-single.html">Blog post title for
-                                            Physical Therapy</a></h2>
-                                    <div class="meta mb-4">by <a href="blog-single.html">Jeff Sheldon</a> <span
-                                            class="mx-2">&bullet;</span> May 5th, 2019</div>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts. </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
-                            <div class="h-entry">
-                                <a href="blog-single.html"><img src="images/img_1.jpg"
-                                        alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-                                <div class="h-entry-inner">
-                                    <h2 class="font-size-regular"><a href="blog-single.html">Blog post title for
-                                            Physical Therapy</a></h2>
-                                    <div class="meta mb-4">by <a href="#">Jeff Sheldon</a> <span
                                             class="mx-2">&bullet;</span> May 5th, 2019</div>
                                     <p>Far far away, behind the word mountains, far from the countries Vokalia and
                                         Consonantia, there live the blind texts. </p>
@@ -126,15 +65,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 text-center mt-5">
-                        <p class="custom-pagination">
-                            <span>1</span>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <span>...</span>
-                            <a href="#">20</a>
-                        </p>
-                    </div>
+
                 </div>
 
                 <div class="col-md-3 ml-auto">

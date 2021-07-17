@@ -431,7 +431,7 @@ function global_check() {
 }
 
 
-if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && isset($_POST['fcg']) && isset($_POST['dept']) && isset($_POST['level'])) {
+if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && isset($_POST['fcg']) && isset($_POST['dept']) && isset($_POST['level']) && isset($_POST['files'])) {
 
 	$inst 	= $_POST['inst'];
 	$typ 	= $_POST['typ'];
@@ -467,7 +467,7 @@ if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && is
 		$_SESSION['uploaded'] = "Your PDF was approved and uploaded successfully";
 
 		echo 'Loading...Please Wait!';
-		echo '<script>window.location.href ="./profile"</script>';
+		echo '<script>window.location.href ="./pdf"</script>';
 
 	} else {
 

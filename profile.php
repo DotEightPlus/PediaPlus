@@ -191,14 +191,13 @@ if(!isset($_SESSION['login'])) {
                             </div>
 
 
-                            <!---   <div class="col-md-12 mb-3 mb-md-4">
+                            <div class="col-md-12 mb-3 mb-md-4">
                                 <label class="text-black font-weight-bold" for="title">Select File</label>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="psfile">
+                                    <input type="file" class="custom-file-input" id="uplfile">
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
-                                <p style="color: red;" id="msg"></p>
-                            </div>--->
+                            </div>
 
 
                             <div class="col-md-12 mb-3 mb-md-0">
