@@ -204,11 +204,7 @@ $(document).ready(function () {
             $("#dntmsg").html("Kindly input the PDF Department");
           } else {
 
-            if (files == null || files == "") {
-              $("#dntmsg").html("Kindly select a file to upload");
-            } else {
-
-              $("#dntmsg").html("Loading.. Make sure you have a strong internet connection");
+           $("#dntmsg").html("Loading.. Make sure you have a strong internet connection");
 
             $.ajax({
               type: "post",
@@ -228,7 +224,6 @@ $(document).ready(function () {
           }
         }
       }
-    }
   }
 
     $("#donateModalCenter").modal();

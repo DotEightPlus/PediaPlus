@@ -431,7 +431,7 @@ function global_check() {
 }
 
 
-if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && isset($_POST['fcg']) && isset($_POST['dept']) && isset($_POST['level']) && isset($_POST['files'])) {
+if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && isset($_POST['fcg']) && isset($_POST['dept']) && isset($_POST['level'])) {
 
 	$inst 	= $_POST['inst'];
 	$typ 	= $_POST['typ'];

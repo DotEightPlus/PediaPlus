@@ -1,11 +1,4 @@
-<?php include("functions/init.php");
-
-$sql = "SELECT * FROM pdf";
-$rsl = query($sql);
-
-$row = mysqli_fetch_array($rsl);
-
-?>
+<?php include("functions/init.php");?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +40,10 @@ $row = mysqli_fetch_array($rsl);
 
                 <div class="col-md-8">
                     <?php 
+                    $sql = "SELECT * FROM pdf";
+                    $rsl = query($sql);
                     
+                    while($row = mysqli_fetch_array($rsl)) {
                    ?>
                     <div class="row mb-3 align-items-stretch">
                         <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
@@ -55,17 +51,34 @@ $row = mysqli_fetch_array($rsl);
                                 <div class="h-entry-inner">
                                     <a href="blog-single.html"><img src="images/pdff.png" alt="<?php ?>"
                                             class="img-fluid"></a>
-                                    <h2 class="font-size-regular"><a href="blog-single.html">Blog post title for
-                                            Physical Therapy</a></h2>
-                                    <div class="meta mb-4">by <a href="blog-single.html">Jeff Sheldon</a> <span
-                                            class="mx-2">&bullet;</span> May 5th, 2019</div>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts. </p>
+                                    <h2 class="font-size-regular"><a href="blog-single.html"><?php ?></a></h2>
+                                    <div class="meta mb-4">Uploaded by <a
+                                            href="./profile?user=<?php echo $row['upld'] ?>">
+                                            <?php echo $row['upld'] ?>
+                                        </a> <span class="mx-2">&bullet;</span> <?php echo $row['level'] ?>
+                                        <span class="mx-2">&bullet;</span> <?php echo $row['dept'] ?>
+
+                                    </div>
+
+
+                                    <!--<p>The content of this PDF was uploaded for
+                                        <b><?php echo $row['fcg'] ?></b>. Department of
+                                        <b><?php echo $row['dept'] ?></b>
+                                    </p> -->
+
+                                    <div class="col-md-12 ">
+                                        <a href="./logout"><input
+                                                style="width: 100%; background: #FFE9E6; color: #ff0000;" type="submit"
+                                                value="Preview/Download" class="btn btn-pill btn-md "></a><br />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php
+                    }
 
+                    ?>
                 </div>
 
                 <div class="col-md-3 ml-auto">
@@ -91,13 +104,17 @@ $row = mysqli_fetch_array($rsl);
                     <div class="mb-5">
                         <h3 class="h5 text-black mb-3">Recent Comments</h3>
                         <ul class="list-unstyled post-lists">
-                            <li class="mb-2"><a href="#">Hannah</a> <em>in</em> <a href="#">Lorem ipsum dolor sit
+                            <li class="mb-2"><a href="#">Hannah</a> <em>in</em> <a href="#">Lorem ipsum dolor
+                                    sit
                                     amet</a></li>
-                            <li class="mb-2"><a href="#">Roger</a> <em>in</em> <a href="#">Quaerat rerum voluptatibus
+                            <li class="mb-2"><a href="#">Roger</a> <em>in</em> <a href="#">Quaerat rerum
+                                    voluptatibus
                                     veritatis</a></li>
-                            <li class="mb-2"><a href="#">Hannah</a> <em>in</em> <a href="#">Maiores sapiente veritatis
+                            <li class="mb-2"><a href="#">Hannah</a> <em>in</em> <a href="#">Maiores sapiente
+                                    veritatis
                                     reprehenderit</a></li>
-                            <li class="mb-2"><a href="#">Kim</a> <em>in</em> <a href="#">Natus eligendi nobis</a></li>
+                            <li class="mb-2"><a href="#">Kim</a> <em>in</em> <a href="#">Natus eligendi
+                                    nobis</a></li>
                         </ul>
                     </div>
 
