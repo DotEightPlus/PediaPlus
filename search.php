@@ -1,11 +1,19 @@
-<?php include("functions/init.php");?>
+<?php include("functions/init.php");
+if(!isset($_POST['res'])) {
+
+    redirect("./pdfs");
+} else {
+
+    $data = clean(escape($_POST['res']));
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>DotPedia | Dowload PDF's</title>
-    <meta name="description" content="DotPedia | Download PDF's">
-    <meta name="keywords" content="DotPedia, Download Pdf">
+    <title>DotPedia | Search PDF</title>
+    <meta name="description" content="DotPedia | Search PDF's">
+    <meta name="keywords" content="DotPedia, Search Pdf">
     <?php include("include/header.php"); ?>
     <div class="site-blocks-cover overlay" style="background-image: url(images/3.png);" data-aos="fade"
         data-stellar-background-ratio="0.5">
@@ -122,28 +130,28 @@
                 <h3 class="h5 text-black mb-3">Search</h3>
                 <form action="./search" method="post">
                     <div class="form-group d-flex">
-                        <input type="text" name="res" class="form-control" placeholder="Search PDF and hit enter...">
+                        <input type="text" name="res" value="<?php echo $data ?>" class="form-control"
+                            placeholder="Search PDF and hit enter...">
                     </div>
                 </form>
             </div>
             <div class="row">
 
-
-
-                <div class="col-md-8">
-
-                    <div class="row mb-3 align-items-stretch">
-                        <?php 
-                    $sql = "SELECT * FROM pdf WHERE `approve` = 'Yes'";
+                <div class="col-md-12">
+                    <?php 
+                    $sql = "SELECT * FROM pdf WHERE `title` LIKE '%$data%'";
                     $rsl = query($sql);
+
+                    if(row_count($rsl) != '') {
                     
                     while($row = mysqli_fetch_array($rsl)) {
                    ?>
-                        <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
+                    <div class="row mb-3 align-items-stretch">
+                        <div class="col-md-4 col-lg-4 mb-4 mb-lg-4">
                             <div class="h-entry">
                                 <div class="h-entry-inner">
-                                    <a href="blog-single.html"><img src="images/pdff.png"
-                                            alt="<?php echo $row['title'] ?>" class="img-fluid"></a>
+                                    <a href="blog-single.html"><img src="images/pdff.png" alt="<?php ?>"
+                                            class="img-fluid"></a>
                                     <h2 style="color: #ff0000" class="font-size-regular font-weight-bold">
                                         <?php echo $row['title'] ?>
                                     </h2>
@@ -185,52 +193,24 @@
                                 </div>
                             </div>
                         </div>
-
-                        <?php
+                    </div>
+                    <?php
                     }
+                 } else {
 
-                    ?>
-                    </div>
+                        echo '
+                        
+                        <div style="color: #000" class="meta mb-4">Uploaded by
+                    Downloads
                 </div>
 
-                <div class="col-md-3 ml-auto">
 
-
-                    <div class="mb-5">
-                        <h3 class="h5 text-black mb-3">Latest PDF(s)</h3>
-                        <ul class="list-unstyled post-lists">
-                            <?php 
-                         $sql = "SELECT * FROM pdf WHERE `approve` = 'Yes' ORDER BY id desc LIMIT 5";
-                         $rsl = query($sql);
-                         
-                         while($row = mysqli_fetch_array($rsl)) {
-                        ?>
-                            <li class="mb-2"><a
-                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a></li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-
-                    <div class="mb-5">
-                        <h3 class="h5 text-black mb-3">Top Downloaded</h3>
-                        <ul class="list-unstyled post-lists">
-                            <?php 
-                         $sql = "SELECT * FROM pdf WHERE `dwnld` BETWEEN 5 AND 1000000000000000 AND `approve` = 'Yes' LIMIT 5";
-                         $rsl = query($sql);
-                         
-                         while($row = mysqli_fetch_array($rsl)) {
-                        ?>
-                            <li class="mb-2"><a
-                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a></li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-
+                ';
+                }
+                ?>
                 </div>
+
+
 
             </div>
         </div>
@@ -259,7 +239,7 @@
     <script src="js/typed.js"></script>
     <script>
     var typed = new Typed('.typed-words', {
-        strings: ["&nbsp;GET&nbsp;", "&nbsp;SHARE&nbsp;", "&nbsp;SAVE&nbsp;  "],
+        strings: ["&nbsp;SEARCH&nbsp;", "&nbsp;GET&nbsp;", "&nbsp;FIND&nbsp;  "],
         typeSpeed: 80,
         backSpeed: 80,
         backDelay: 400,
