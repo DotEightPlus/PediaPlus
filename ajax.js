@@ -247,4 +247,18 @@ $(document).ready(function () {
     }
     $("#donateModalCenter").modal();
   });**/
+
+
+  /** SEARCH FILTER */
+  $("#filter").click(function () {
+
+    var inst = $("#inst").val();
+    var fcg = $("#fcg").val();
+    var dept = $("#dept").val();
+    var level = $("#level").val();
+    var srctxt = $("#srctxt").val();
+
+    window.location.href = "./search?txt=" + srctxt + "&inst=" + inst + "&fcg=" + fcg + "&dept=" + dept +
+            "&level=" + level;
+  })
 });

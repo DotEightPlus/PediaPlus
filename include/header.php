@@ -33,10 +33,10 @@
 
    <body>
 
-       <!--CSS Spinner-->
+       <!--CSS Spinner
        <div class="spinner-wrapper">
            <div class="spinner"></div>
-       </div>
+       </div>-->
 
        <div class="site-wrap">
 

@@ -6,6 +6,11 @@
     <title>DotPedia | Dowload PDF's</title>
     <meta name="description" content="DotPedia | Download PDF's">
     <meta name="keywords" content="DotPedia, Download Pdf">
+    <meta property="og:title" content="DotPedia" />
+    <meta property="og:image" content="images/ico.png" />
+    <meta property="og:url" content="https://dotpedia.com.ng" />
+    <meta property="og:site_name" content="DotPedia from DotEightPlus" />
+    <meta property="og:description" content="Read, Earn, Share" />
     <?php include("include/header.php"); ?>
     <div class="site-blocks-cover overlay" style="background-image: url(images/3.png);" data-aos="fade"
         data-stellar-background-ratio="0.5">
@@ -39,12 +44,31 @@
                         novalidate="novalidate">
                         <div class="row">
 
+                            <div class="col-sm-12">
+                                <label><b style="color: #ff0000; font-size: 18px;" class="font-weight-bold">Search PDF
+                                        .:</b></label>
+                                <div class="form-group">
+
+                                    <input type="text" name="srctxt" id="srctxt" class="form-control"
+                                        placeholder="Search PDF and click on apply...">
+
+                                </div>
+                            </div>
+
                             <div class="col-sm-3">
                                 <label><b style="color: #ff0000; font-size: 18px;" class="font-weight-bold">Institution
                                         .:</b></label>
                                 <div class="form-group">
-                                    <select class="form-control">
-                                        <option id="loc" name="loc">Abubakar Tafawa Balewa University, Bauchi</option>
+                                    <select class="form-control" id="inst">
+                                        <?php
+                                    $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `inst`";
+                                    $rt = query($gt);
+                                    
+                                    $rw = mysqli_fetch_array($rt);
+                                    
+                                    echo '<option id="inst" name="inst">'.$rw['inst'].'</option>';
+                                    ?>
+
 
                                     </select>
 
@@ -55,8 +79,16 @@
                                         class="font-weight-bold">Faculty/College
                                         .:</b></label>
                                 <div class="form-group">
-                                    <select name="aprmt" id="aprmt" class="form-control" required>
-                                        <option id="apt">Self-Contain</option>
+                                    <select name="fcg" id="fcg" class="form-control" required>
+
+                                        <?php
+                                    $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `fcg`";
+                                    $rt = query($gt);
+                                    
+                                    $rw = mysqli_fetch_array($rt);
+                                    
+                                    echo '<option id="fcg" name="fcg">'.$rw['fcg'].'</option>';
+                                    ?>
 
                                     </select>
 
@@ -67,11 +99,15 @@
                                 <label><b style="color: #ff0000; font-size: 18px;" class="font-weight-bold">Department
                                         .:</b></label>
                                 <div class="form-group">
-                                    <select name="water" id="water" class="form-control" required>
-                                        <option id="water">Borehole</option>
-                                        <option id="water">Well</option>
-                                        <option id="water">Public Water</option>
-                                        <option id="water">None</option>
+                                    <select name="dept" id="dept" class="form-control" required>
+                                        <?php
+                                    $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `dept`";
+                                    $rt = query($gt);
+                                    
+                                    $rw = mysqli_fetch_array($rt);
+                                    
+                                    echo '<option id="inst" name="inst">'.$rw['dept'].'</option>';
+                                    ?>
                                     </select>
 
                                 </div>
@@ -83,10 +119,14 @@
                                         .:</b></label>
                                 <div class="form-group">
                                     <select id="toi" class="form-control" required>
-                                        <option id="toi">Pit Toilet</option>
-                                        <option id="toi">Water Closet</option>
-                                        <option id="toi">Public Toilet</option>
-                                        <option id="toi">None</option>
+                                        <?php
+                                    $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `level`";
+                                    $rt = query($gt);
+                                    
+                                    $rw = mysqli_fetch_array($rt);
+                                    
+                                    echo '<option id="inst" name="inst">'.$rw['level'].'</option>';
+                                    ?>
                                     </select>
 
                                 </div>
@@ -97,9 +137,8 @@
 
                                 <div class="form-group">
                                     <div class="col-md-12 mt-4">
-                                        <a href="./logout"><input
-                                                style="width: 100%; background: #FFE9E6; color: #ff0000;" type="submit"
-                                                value="APPLY" class="btn btn-md "></a><br />
+                                        <button id="filter" style="width: 100%; background: #FFE9E6; color: #ff0000;"
+                                            type="button" class="btn btn-md ">APPLY</button><br />
                                     </div>
 
                                 </div>
@@ -118,78 +157,72 @@
 
     <div class="site-section">
         <div class="container">
-            <div class="mb-5">
-                <h3 class="h5 text-black mb-3">Search</h3>
-                <form action="./search" method="post">
-                    <div class="form-group d-flex">
-                        <input type="text" name="res" class="form-control" placeholder="Search PDF and hit enter...">
-                    </div>
-                </form>
-            </div>
+
             <div class="row">
+
+
 
 
 
                 <div class="col-md-8">
 
                     <div class="row mb-3 align-items-stretch">
-                        <?php 
-                    $sql = "SELECT * FROM pdf WHERE `approve` = 'Yes'";
-                    $rsl = query($sql);
-                    
-                    while($row = mysqli_fetch_array($rsl)) {
-                   ?>
+
+                        <?php
+                        $ssl = "SELECT * FROM pdf WHERE `approve` = 'Yes'";
+                        $rls = query($ssl);
+
+                        while($row = mysqli_fetch_array($rls)) {
+                        
+                        ?>
                         <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
+
                             <div class="h-entry">
                                 <div class="h-entry-inner">
-                                    <a href="blog-single.html"><img src="images/pdff.png"
-                                            alt="<?php echo $row['title'] ?>" class="img-fluid"></a>
+                                    <a href="blog-single.html"><img src="images/pdff.png" alt="" class="img-fluid"></a>
                                     <h2 style="color: #ff0000" class="font-size-regular font-weight-bold">
-                                        <?php echo $row['title'] ?>
+                                        <?php echo $row['title']; ?>
                                     </h2>
                                     <div style="color: #000" class="meta mb-4">Uploaded by <a
-                                            href="./<?php echo $row['upld'] ?>">
-                                            <?php echo $row['upld']; 
-                                            
-                                            //verification tick
-                                            $uul = $row['upld'];
-                                            $ssl = "SELECT * FROM signup WHERE `usname` = '$uul'";
-                                            $rsl = query($ssl);
+                                            href="./<?php echo $row['upld'] ?>"><?php echo $row['upld'] ?>
 
-                                            $tick = mysqli_fetch_array($rsl);
 
-                                            if($tick['vrf'] == 'Yes') {
-                                                
-                                                echo ' <i style="color: #ff0000" class="icon-check-circle"></i>';
-                                                
-                                            } else {
-
-                                                echo '';
-                                            }
-                                            
-                                            ?>
                                         </a>
-                                        <span class="mx-2">&bullet;</span> <?php echo $row['level'] ?>
+                                        <span class="mx-2">&bullet;</span> <?php echo $row['level'] ?><br />
                                         <span class="mx-2">&bullet;</span> <?php echo $row['dept'] ?>
-                                        <span class="mx-2">&bullet;</span> <?php echo number_format($row['dwnld']) ?>
+                                        <span class="mx-2">&bullet;</span> <?php echo $row['dwnld'] ?>
                                         Downloads
+                                        <br /><br />
+                                        <span class="mx-2"><a target="_blank" data-media="images/ico.png"
+                                                href="https://twitter.com/home?status=https://dotpedia.com.ng/preview/<?php echo $row['title'] ?>"><i
+                                                    class="icon-twitter"></i></a></span>
+                                        <span class="mx-2"><a target="_blank" data-media="images/ico.png"
+                                                href="https://facebook.com/sharer.php?u=https://dotpedia.com.ng/preview/<?php echo $row['title'] ?>"><i
+                                                    class="icon-facebook"></i></a></span>
+                                        <span class="mx-2"><a target="_blank" data-action="share/whatsapp/share"
+                                                data-media="images/ico.png"
+                                                href="https://api.whatsapp.com/send?text=https://teensyouths.com.ng/preview/<?php echo $row['title'] ?>"><i
+                                                    class="icon-whatsapp"></i></a></span>
                                     </div>
 
 
 
                                     <div class="col-md-12 ">
-                                        <a href="./preview/<?php echo $row['filer'] ?>"><input
+                                        <a href="./preview/ccxc"><input
                                                 style="width: 100%; background: #FFE9E6; color: #ff0000;" type="submit"
                                                 value="Preview/Download" class="btn btn-pill btn-md "></a><br />
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
-                        <?php
-                    }
 
-                    ?>
+
+                        <?php
+                        }
+                        ?>
+
                     </div>
                 </div>
 
@@ -206,7 +239,8 @@
                          while($row = mysqli_fetch_array($rsl)) {
                         ?>
                             <li class="mb-2"><a
-                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a></li>
+                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
+                            </li>
                             <?php
                             }
                             ?>
@@ -223,7 +257,8 @@
                          while($row = mysqli_fetch_array($rsl)) {
                         ?>
                             <li class="mb-2"><a
-                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a></li>
+                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
+                            </li>
                             <?php
                             }
                             ?>
@@ -270,6 +305,8 @@
     </script>
 
     <script src="js/main.js"></script>
+
+    <script src="ajax.js"></script>
 
     </body>
 
