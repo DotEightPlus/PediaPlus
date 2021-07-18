@@ -276,7 +276,7 @@ $(document).ready(function () {
 
             var xhr = new  XMLHttpRequest();
             document.getElementById('resl').innerHTML = "<span style='color: #ff0000'>Loading.. Please wait!</span>";
-            xhr.open('GET', './search?txt=' + srctxt + '&inst=' + inst + '&fcg=' + fcg + '&dept=' + dept + '&level=' + level, true);
+            xhr.open('GET', './searchresult?txt=' + srctxt + '&inst=' + inst + '&fcg=' + fcg + '&dept=' + dept + '&level=' + level, true);
       
             xhr.onload = function ()
             {

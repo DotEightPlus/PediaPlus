@@ -177,10 +177,10 @@ if(!isset($_GET['txt']) && !isset($_GET['inst']) && !isset($_GET['fcg']) && !iss
 
 
 
-    <div class="site-section">
+    <div class="site-section" id="resl">
         <div class="container">
 
-            <div class="row" id="resl">
+            <div class="row">
 
 
                 <div class="col-md-8">
