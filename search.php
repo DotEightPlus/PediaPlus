@@ -1,6 +1,20 @@
 <?php include("functions/init.php");
 
+if(!isset($_GET['txt']) && !isset($_GET['inst']) && !isset($_GET['fcg']) && !isset($_GET['dept']) && !isset($_GET['level'])) {
 
+   redirect("./pdf"); 
+   
+} else {
+
+    $txt  = clean(escape($_GET['txt']));
+    $inst = clean(escape($_GET['inst']));
+    $fcg  = clean(escape($_GET['fcg']));
+    $dept = clean(escape($_GET['dept']));
+    $level = clean(escape($_GET['level']));
+
+}
+
+//txt=202&inst=FUOYE&fcg=Engineerig&dept=EEE&level=100%20Level
 
 ?>
 <!DOCTYPE html>
@@ -8,11 +22,11 @@
 
 <head>
     <title>DotPedia | Dowload PDF's</title>
-    <meta name="description" content="DotPedia | Download PDF's">
-    <meta name="keywords" content="DotPedia, Download Pdf">
-    <meta property="og:title" content="DotPedia" />
+    <meta name="description" content="DotPedia | Search PDF's">
+    <meta name="keywords" content="DotPedia, Search Pdf">
+    <meta property="og:title" content="<?php echo $txt ?> - DotPedia" />
     <meta property="og:image" content="images/ico.png" />
-    <meta property="og:url" content="https://dotpedia.com.ng" />
+    <meta property="og:url" content="https://dotpedia.com.ng/pdf" />
     <meta property="og:site_name" content="DotPedia from DotEightPlus" />
     <meta property="og:description" content="Read, Earn, Share" />
     <?php include("include/header.php"); ?>
@@ -54,7 +68,7 @@
                                 <div class="form-group">
 
                                     <input type="text" name="srctxt" id="srctxt" class="form-control"
-                                        placeholder="Search PDF and click on apply...">
+                                        placeholder="Search PDF and click on apply..." value="<?php echo $txt ?>">
 
                                 </div>
                             </div>
@@ -68,9 +82,10 @@
                                     $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `inst`";
                                     $rt = query($gt);
                                     
-                                    $rw = mysqli_fetch_array($rt);
+                                    while($rw = mysqli_fetch_array($rt)) {
                                     
                                     echo '<option id="inst" name="inst">'.$rw['inst'].'</option>';
+                                    }
                                     ?>
 
 
@@ -89,9 +104,10 @@
                                     $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `fcg`";
                                     $rt = query($gt);
                                     
-                                    $rw = mysqli_fetch_array($rt);
+                                    while($rw = mysqli_fetch_array($rt)) {
                                     
                                     echo '<option id="fcg" name="fcg">'.$rw['fcg'].'</option>';
+                                    }
                                     ?>
 
                                     </select>
@@ -108,9 +124,10 @@
                                     $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `dept`";
                                     $rt = query($gt);
                                     
-                                    $rw = mysqli_fetch_array($rt);
+                                    while($rw = mysqli_fetch_array($rt)) {
                                     
                                     echo '<option id="inst" name="inst">'.$rw['dept'].'</option>';
+                                    }
                                     ?>
                                     </select>
 
@@ -122,14 +139,15 @@
                                 <label><b style="color: #ff0000; font-size: 18px;" class="font-weight-bold">Level
                                         .:</b></label>
                                 <div class="form-group">
-                                    <select id="toi" class="form-control" required>
+                                    <select id="level" class="form-control" required>
                                         <?php
                                     $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `level`";
                                     $rt = query($gt);
                                     
-                                    $rw = mysqli_fetch_array($rt);
+                                    while($rw = mysqli_fetch_array($rt)) {
                                     
-                                    echo '<option id="inst" name="inst">'.$rw['level'].'</option>';
+                                    echo '<option id="level" name="level">'.$rw['level'].'</option>';
+                                    }
                                     ?>
                                     </select>
 
@@ -141,7 +159,7 @@
 
                                 <div class="form-group">
                                     <div class="col-md-12 mt-4">
-                                        <button id="filter" style="width: 100%; background: #FFE9E6; color: #ff0000;"
+                                        <button id="filterr" style="width: 100%; background: #FFE9E6; color: #ff0000;"
                                             type="button" class="btn btn-md ">APPLY</button><br />
                                     </div>
 
@@ -162,10 +180,7 @@
     <div class="site-section">
         <div class="container">
 
-            <div class="row">
-
-
-
+            <div class="row" id="resl">
 
 
                 <div class="col-md-8">
@@ -173,12 +188,14 @@
                     <div class="row mb-3 align-items-stretch">
 
                         <?php
-                        $ssl = "SELECT * FROM pdf WHERE `approve` = 'Yes'";
-                        $rls = query($ssl);
+     $sql = "SELECT * FROM pdf WHERE `title` LIKE '%$txt%' AND `inst` LIKE '%$inst%' AND `dept` LIKE '%$dept%' AND `level` LIKE '%$level%' AND `fcg` LIKE '%$fcg%'";
+     $rsl = query($sql);
 
-                        while($row = mysqli_fetch_array($rls)) {
-                        
-                        ?>
+     if(row_count($rsl) != '') {
+     
+     while($row = mysqli_fetch_array($rsl)) {
+    
+    ?>
                         <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
 
                             <div class="h-entry">
@@ -224,55 +241,56 @@
 
 
                         <?php
-                        }
-                        ?>
+    }
+}
+    ?>
 
                     </div>
                 </div>
+            </div>
 
-                <div class="col-md-3 ml-auto">
+
+            <div class="col-md-3 ml-auto">
 
 
-                    <div class="mb-5">
-                        <h3 class="h5 text-black mb-3">Latest PDF(s)</h3>
-                        <ul class="list-unstyled post-lists">
-                            <?php 
-                         $sql = "SELECT * FROM pdf WHERE `approve` = 'Yes' ORDER BY id desc LIMIT 5";
-                         $rsl = query($sql);
-                         
-                         while($row = mysqli_fetch_array($rsl)) {
-                        ?>
-                            <li class="mb-2"><a
-                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
-                            </li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
+                <div class="mb-5">
+                    <h3 class="h5 text-black mb-3">Latest PDF(s)</h3>
+                    <ul class="list-unstyled post-lists">
+                        <?php 
+     $sql = "SELECT * FROM pdf WHERE `approve` = 'Yes' ORDER BY id desc LIMIT 5";
+     $rsl = query($sql);
+     
+     while($row = mysqli_fetch_array($rsl)) {
+    ?>
+                        <li class="mb-2"><a href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
+                        </li>
+                        <?php
+        }
+        ?>
+                    </ul>
+                </div>
 
-                    <div class="mb-5">
-                        <h3 class="h5 text-black mb-3">Top Downloaded</h3>
-                        <ul class="list-unstyled post-lists">
-                            <?php 
-                         $sql = "SELECT * FROM pdf WHERE `dwnld` BETWEEN 5 AND 1000000000000000 AND `approve` = 'Yes' LIMIT 5";
-                         $rsl = query($sql);
-                         
-                         while($row = mysqli_fetch_array($rsl)) {
-                        ?>
-                            <li class="mb-2"><a
-                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
-                            </li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-
+                <div class="mb-5">
+                    <h3 class="h5 text-black mb-3">Top Downloaded</h3>
+                    <ul class="list-unstyled post-lists">
+                        <?php 
+     $sql = "SELECT * FROM pdf WHERE `dwnld` BETWEEN 5 AND 1000000000000000 AND `approve` = 'Yes' LIMIT 5";
+     $rsl = query($sql);
+     
+     while($row = mysqli_fetch_array($rsl)) {
+    ?>
+                        <li class="mb-2"><a href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
+                        </li>
+                        <?php
+        }
+        ?>
+                    </ul>
                 </div>
 
             </div>
+
         </div>
+    </div>
     </div>
 
     <?php include("include/footer.php"); ?>

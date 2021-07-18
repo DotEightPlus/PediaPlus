@@ -64,9 +64,10 @@
                                     $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `inst`";
                                     $rt = query($gt);
                                     
-                                    $rw = mysqli_fetch_array($rt);
+                                    while($rw = mysqli_fetch_array($rt)) {
                                     
                                     echo '<option id="inst" name="inst">'.$rw['inst'].'</option>';
+                                    }
                                     ?>
 
 
@@ -85,9 +86,10 @@
                                     $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `fcg`";
                                     $rt = query($gt);
                                     
-                                    $rw = mysqli_fetch_array($rt);
+                                    while($rw = mysqli_fetch_array($rt)) {
                                     
                                     echo '<option id="fcg" name="fcg">'.$rw['fcg'].'</option>';
+                                    }
                                     ?>
 
                                     </select>
@@ -104,9 +106,10 @@
                                     $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `dept`";
                                     $rt = query($gt);
                                     
-                                    $rw = mysqli_fetch_array($rt);
+                                    while($rw = mysqli_fetch_array($rt)) {
                                     
                                     echo '<option id="inst" name="inst">'.$rw['dept'].'</option>';
+                                    }
                                     ?>
                                     </select>
 
@@ -118,14 +121,15 @@
                                 <label><b style="color: #ff0000; font-size: 18px;" class="font-weight-bold">Level
                                         .:</b></label>
                                 <div class="form-group">
-                                    <select id="toi" class="form-control" required>
+                                    <select id="level" class="form-control" required>
                                         <?php
                                     $gt = "SELECT * FROM pdf WHERE `approve` = 'Yes' GROUP BY `level`";
                                     $rt = query($gt);
                                     
-                                    $rw = mysqli_fetch_array($rt);
+                                    while($rw = mysqli_fetch_array($rt)) {
                                     
-                                    echo '<option id="inst" name="inst">'.$rw['level'].'</option>';
+                                    echo '<option id="level" name="level">'.$rw['level'].'</option>';
+                                    }
                                     ?>
                                     </select>
 
