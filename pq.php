@@ -3,9 +3,9 @@
 <html lang="en">
 
 <head>
-    <title>DotPedia | Dowload PDF's</title>
-    <meta name="description" content="DotPedia | Download PDF's">
-    <meta name="keywords" content="DotPedia, Download Pdf">
+    <title>DotPedia | Past Questions</title>
+    <meta name="description" content="DotPedia | Past Questions">
+    <meta name="keywords" content="DotPedia, Past Questions">
     <meta property="og:title" content="DotPedia" />
     <meta property="og:image" content="images/ico.png" />
     <meta property="og:url" content="https://dotpedia.com.ng" />
@@ -23,7 +23,7 @@
                         <div class="col-md-10 text-center">
                             <h1 data-aos="fade-up" class="mb-5 font-weight-bold text-head"><span
                                     style="background: #FFE9E6; color: #ff0000; border-radius: 0px 20px 0px 20px;"
-                                    class="typed-words"></span> PDF's</h1>
+                                    class="typed-words"></span> PQ(s)</h1>
 
 
                         </div>
@@ -45,12 +45,12 @@
                         <div class="row">
 
                             <div class="col-sm-12">
-                                <label><b style="color: #ff0000; font-size: 18px;" class="font-weight-bold">Search PDF
+                                <label><b style="color: #ff0000; font-size: 18px;" class="font-weight-bold">Search PQ
                                         .:</b></label>
                                 <div class="form-group">
 
                                     <input type="text" name="srctxt" id="srctxt" class="form-control"
-                                        placeholder="Search PDF and click on apply...">
+                                        placeholder="Search Past Questions and click on apply...">
 
                                 </div>
                             </div>
@@ -168,11 +168,11 @@
 
                 <div class="col-md-12">
 
-                    <h2 style="color: #ff0000" class="mb-4"><b>Most Downloaded PDF(s) </b></h2>
+                    <h2 style="color: #ff0000" class="mb-4"><b>Most Downloaded PQ(s) </b></h2>
                     <div class="row mb-3 align-items-stretch">
 
                         <?php
-    $ssl = "SELECT * FROM pdf WHERE `approve` = 'Yes' AND `dwnld` BETWEEN 5 AND 1000000000000000 ORDER BY id desc";
+    $ssl = "SELECT * FROM pq WHERE `approve` = 'Yes' AND `dwnld` BETWEEN 5 AND 1000000000000000 ORDER BY id desc";
     $rls = query($ssl); 
 
     while($row = mysqli_fetch_array($rls)) {
@@ -234,11 +234,11 @@
 
                 <div class="col-md-12">
 
-                    <h2 style="color: #ff0000" class="mb-4"><b>Latest PDF(s) </b></h2>
+                    <h2 style="color: #ff0000" class="mb-4"><b>Latest PQ(s) </b></h2>
                     <div class="row mb-3 align-items-stretch">
 
                         <?php
-                        $ssl = "SELECT * FROM pdf WHERE `approve` = 'Yes' ORDER BY id desc";
+                        $ssl = "SELECT * FROM pq WHERE `approve` = 'Yes' ORDER BY id desc";
                         $rls = query($ssl); 
 
                         while($row = mysqli_fetch_array($rls)) {

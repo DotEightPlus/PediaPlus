@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>DotPedia | Dowload PDF's</title>
+    <title>DotPedia | Download PDF's</title>
     <meta name="description" content="DotPedia | Download PDF's">
     <meta name="keywords" content="DotPedia, Download Pdf">
     <meta property="og:title" content="DotPedia" />
@@ -141,7 +141,7 @@
 
                                 <div class="form-group">
                                     <div class="col-md-12 mt-4">
-                                        <button id="filter" style="width: 100%; background: #FFE9E6; color: #ff0000;"
+                                        <button id="filterr" style="width: 100%; background: #FFE9E6; color: #ff0000;"
                                             type="button" class="btn btn-md ">APPLY</button><br />
                                     </div>
 
@@ -159,7 +159,7 @@
 
 
 
-    <div class="site-section">
+    <div class="site-section" id="resl">
         <div class="container">
 
             <div class="row">
