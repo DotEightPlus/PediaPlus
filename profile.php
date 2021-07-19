@@ -95,7 +95,7 @@ if(!isset($_SESSION['login'])) {
 
                     <div class="p-4 mb-3 bg-white">
                         <p class="mb-0 font-weight-bold">Available PDF Credit</p>
-                        <p class="mb-4">NGN <?php echo number_format($row['pdfcredit']) ?> - <a href="./signup"
+                        <p class="mb-4">NGN <?php echo number_format($row['pdfcredit']) ?> - <a href="#"
                                 class="d-inline-flex align-items-center block-service-1-more"><span>Buy PDF
                                     Credit</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
 
@@ -116,7 +116,7 @@ if(!isset($_SESSION['login'])) {
                                 <span class="icon-keyboard_arrow_right icon"></span></a></p>
 
                         <p class="mb-0 font-weight-bold">Total Earnings</p>
-                        <p class="mb-4">NGN <?php echo number_format($rtw['earning']) ?></a> - <a href="./signup"
+                        <p class="mb-4">NGN <?php echo number_format($rtw['earning']) ?></a> - <a href="#"
                                 class="d-inline-flex align-items-center block-service-1-more"><span>Withdraw
                                     Funds</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
 
@@ -128,6 +128,16 @@ if(!isset($_SESSION['login'])) {
                                 class="d-inline-flex align-items-center block-service-1-more"><span>Share Referal
                                     Link</span>
                                 <span class="icon-keyboard_arrow_right icon"></span></a>
+
+                        </p>
+
+
+                        <p class="mb-0 font-weight-bold">Earn Much More</p>
+                        <p class="mb-4"><a data-toggle="modal" data-target="#refLink" href="#"
+                                class="d-inline-flex align-items-center block-service-1-more"><span>Become a
+                                    Tutor</span></a> &nbsp; | &nbsp; <a data-toggle="modal" data-target="#refLink"
+                                href="#" class="d-inline-flex align-items-center block-service-1-more"><span> 0 Uploaded
+                                    PQs</span></a>
 
                         </p>
 
