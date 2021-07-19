@@ -168,18 +168,18 @@
 
 
 
-                <div class="col-md-8">
+                <div class="col-md-12">
 
                     <div class="row mb-3 align-items-stretch">
 
                         <?php
                         $ssl = "SELECT * FROM pdf WHERE `approve` = 'Yes'";
-                        $rls = query($ssl);
+                        $rls = query($ssl); 
 
                         while($row = mysqli_fetch_array($rls)) {
                         
                         ?>
-                        <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
+                        <div class="col-md-4 col-lg-4 mb-4 mb-lg-4">
 
                             <div class="h-entry">
                                 <div class="h-entry-inner">
@@ -230,46 +230,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 ml-auto">
 
-
-                    <div class="mb-5">
-                        <h3 class="h5 text-black mb-3">Latest PDF(s)</h3>
-                        <ul class="list-unstyled post-lists">
-                            <?php 
-                         $sql = "SELECT * FROM pdf WHERE `approve` = 'Yes' ORDER BY id desc LIMIT 5";
-                         $rsl = query($sql);
-                         
-                         while($row = mysqli_fetch_array($rsl)) {
-                        ?>
-                            <li class="mb-2"><a
-                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
-                            </li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-
-                    <div class="mb-5">
-                        <h3 class="h5 text-black mb-3">Top Downloaded</h3>
-                        <ul class="list-unstyled post-lists">
-                            <?php 
-                         $sql = "SELECT * FROM pdf WHERE `dwnld` BETWEEN 5 AND 1000000000000000 AND `approve` = 'Yes' LIMIT 5";
-                         $rsl = query($sql);
-                         
-                         while($row = mysqli_fetch_array($rsl)) {
-                        ?>
-                            <li class="mb-2"><a
-                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
-                            </li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-
-                </div>
 
             </div>
         </div>

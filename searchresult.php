@@ -32,6 +32,8 @@ if(row_count($rsl) != '') {
 
 while($row = mysqli_fetch_array($rsl)) {
 
+    //echo $txt." ".$inst." ".$dept." ".$level." ".$fcg;
+
 ?>
                 <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
 
@@ -79,51 +81,37 @@ while($row = mysqli_fetch_array($rsl)) {
 
                 <?php
 }
+} else {
+
+    //echo "<p>No related result found!</p>";
 }
 ?>
 
+
             </div>
         </div>
-    </div>
 
 
-    <div class="col-md-3 ml-auto">
+        <div class="col-md-3 ml-auto">
 
 
-        <div class="mb-5">
-            <h3 class="h5 text-black mb-3">Latest PDF(s)</h3>
-            <ul class="list-unstyled post-lists">
-                <?php 
+            <div class="mb-5">
+                <h3 class="h5 text-black mb-3">Related Past Questions</h3>
+                <ul class="list-unstyled post-lists">
+                    <?php 
 $sql = "SELECT * FROM pdf WHERE `approve` = 'Yes' ORDER BY id desc LIMIT 5";
 $rsl = query($sql);
 
 while($row = mysqli_fetch_array($rsl)) {
 ?>
-                <li class="mb-2"><a href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
-                </li>
-                <?php
+                    <li class="mb-2"><a href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
+                    </li>
+                    <?php
 }
 ?>
-            </ul>
-        </div>
+                </ul>
+            </div>
 
-        <div class="mb-5">
-            <h3 class="h5 text-black mb-3">Top Downloaded</h3>
-            <ul class="list-unstyled post-lists">
-                <?php 
-$sql = "SELECT * FROM pdf WHERE `dwnld` BETWEEN 5 AND 1000000000000000 AND `approve` = 'Yes' LIMIT 5";
-$rsl = query($sql);
-
-while($row = mysqli_fetch_array($rsl)) {
-?>
-                <li class="mb-2"><a href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
-                </li>
-                <?php
-}
-?>
-            </ul>
         </div>
 
     </div>
-
-</div>

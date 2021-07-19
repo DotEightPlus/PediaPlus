@@ -245,52 +245,54 @@ if(!isset($_GET['txt']) && !isset($_GET['inst']) && !isset($_GET['fcg']) && !iss
 }
     ?>
 
+
                     </div>
                 </div>
-            </div>
 
 
-            <div class="col-md-3 ml-auto">
+                <div class="col-md-3 ml-auto">
 
 
-                <div class="mb-5">
-                    <h3 class="h5 text-black mb-3">Latest PDF(s)</h3>
-                    <ul class="list-unstyled post-lists">
-                        <?php 
+                    <div class="mb-5">
+                        <h3 class="h5 text-black mb-3">Related Past Questions</h3>
+                        <ul class="list-unstyled post-lists">
+                            <?php 
      $sql = "SELECT * FROM pdf WHERE `approve` = 'Yes' ORDER BY id desc LIMIT 5";
      $rsl = query($sql);
      
      while($row = mysqli_fetch_array($rsl)) {
     ?>
-                        <li class="mb-2"><a href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
-                        </li>
-                        <?php
+                            <li class="mb-2"><a
+                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
+                            </li>
+                            <?php
         }
         ?>
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
 
-                <div class="mb-5">
-                    <h3 class="h5 text-black mb-3">Top Downloaded</h3>
-                    <ul class="list-unstyled post-lists">
-                        <?php 
+                    <div class="mb-5">
+                        <h3 class="h5 text-black mb-3">Top Downloaded</h3>
+                        <ul class="list-unstyled post-lists">
+                            <?php 
      $sql = "SELECT * FROM pdf WHERE `dwnld` BETWEEN 5 AND 1000000000000000 AND `approve` = 'Yes' LIMIT 5";
      $rsl = query($sql);
      
      while($row = mysqli_fetch_array($rsl)) {
     ?>
-                        <li class="mb-2"><a href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
-                        </li>
-                        <?php
+                            <li class="mb-2"><a
+                                    href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
+                            </li>
+                            <?php
         }
         ?>
-                    </ul>
+                        </ul>
+                    </div>
+
                 </div>
 
             </div>
-
         </div>
-    </div>
     </div>
 
     <?php include("include/footer.php"); ?>

@@ -273,22 +273,23 @@ $(document).ready(function () {
 
     //window.location.href = "./search?txt=" + srctxt + "&inst=" + inst + "&fcg=" + fcg + "&dept=" + dept + "&level=" + level;
 
+    var xhr = new  XMLHttpRequest();
+    document.getElementById('resl').innerHTML = "<span style='color: #ff0000; text-align: center;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loading.. Please wait!</span>";
+    
+    xhr.open('GET', './searchresult?txt=' + srctxt + '&inst=' + inst + '&fcg=' + fcg + '&dept=' + dept + '&level=' + level, true);
 
-            var xhr = new  XMLHttpRequest();
-            document.getElementById('resl').innerHTML = "<span style='color: #ff0000'>Loading.. Please wait!</span>";
-            xhr.open('GET', './searchresult?txt=' + srctxt + '&inst=' + inst + '&fcg=' + fcg + '&dept=' + dept + '&level=' + level, true);
-      
-            xhr.onload = function ()
-            {
-              if (xhr.status == 200) {
-                //document.write(this.responseText);
-                document.getElementById('resl').innerHTML= xhr.responseText;
-              } else {
-      
-                document.getElementById('resl').innerHTML = "<span style='color: #ff0000'>Error loading document. <br/> Kindly try again later!</span>";
-              }
-            }
-      
-            xhr.send();
+    xhr.onload = function ()
+    {
+      if (xhr.status == 200) {
+        //document.write(this.responseText);
+        document.getElementById('resl').innerHTML= xhr.responseText;
+      } else {
+
+        document.getElementById('resl').innerHTML = "<span style='color: #ff0000'>Error loading document. <br/> Kindly try again later!</span>";
+      }
+    }
+
+    xhr.send();
+           
   })
 });
