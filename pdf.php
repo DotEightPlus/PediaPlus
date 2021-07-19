@@ -170,6 +170,7 @@
 
                 <div class="col-md-12">
 
+                    <h2 style="color: #ff0000" class="mb-4"><b>Latest PDF(s) </b></h2>
                     <div class="row mb-3 align-items-stretch">
 
                         <?php
@@ -180,7 +181,6 @@
                         
                         ?>
                         <div class="col-md-4 col-lg-4 mb-4 mb-lg-4">
-
                             <div class="h-entry">
                                 <div class="h-entry-inner">
                                     <a href="blog-single.html"><img src="images/pdff.png" alt="" class="img-fluid"></a>
