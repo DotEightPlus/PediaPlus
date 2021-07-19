@@ -461,8 +461,8 @@ if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && is
 	if($row['vrf'] == 'Yes') {
 				
 		//approve PDF and upload details
-		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `dwnld`, `approve`)";
-		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '0', 'Yes')";
+		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `dwnld`, `approve`, `earn`)";
+		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '0', 'Yes', '2')";
 		$result = query($ssl);
 
 		$_SESSION['uploaded'] = "Your PDF was approved and uploaded successfully";

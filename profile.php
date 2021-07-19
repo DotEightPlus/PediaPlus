@@ -99,10 +99,28 @@ if(!isset($_SESSION['login'])) {
                                 class="d-inline-flex align-items-center block-service-1-more"><span>Buy PDF
                                     Credit</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
 
+                        <?php      
+                        $user = $_SESSION['login'];
+                        
+                        $stl = "SELECT sum(sn) AS total, sum(earn) AS earning FROM pdf  WHERE `upld` = '$user'";
+                        $rtl = query($stl); 
+                        $rtw = mysqli_fetch_array($rtl);
+
+                        ?>
+
+                        <p class="mb-0 font-weight-bold">Total PDF(s) Donated</p>
+                        <p class="mb-4"><?php echo number_format($rtw['total']) ?></a> - <a data-toggle="modal"
+                                data-target="#uploaded" href="#"
+                                class="d-inline-flex align-items-center block-service-1-more"><span>View Uploaded
+                                    PDFs</span>
+                                <span class="icon-keyboard_arrow_right icon"></span></a></p>
+
                         <p class="mb-0 font-weight-bold">Total Earnings</p>
-                        <p class="mb-4">NGN <?php echo number_format($row['point']) ?></a> - <a href="./signup"
+                        <p class="mb-4">NGN <?php echo number_format($rtw['earning']) ?></a> - <a href="./signup"
                                 class="d-inline-flex align-items-center block-service-1-more"><span>Withdraw
                                     Funds</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+
+
 
                         <p class="mb-0 font-weight-bold">Total Referals</p>
                         <p class="mb-4"><?php echo number_format($row['withdraw']) ?></a> - <a data-toggle="modal"
@@ -112,11 +130,6 @@ if(!isset($_SESSION['login'])) {
                                 <span class="icon-keyboard_arrow_right icon"></span></a>
 
                         </p>
-
-                        <p class="mb-0 font-weight-bold">Total PDF(s) Donated</p>
-                        <p class="mb-4"><?php echo number_format($row['point']) ?></a> - <a href="#donor"
-                                class="d-inline-flex align-items-center block-service-1-more"><span>Donate PDF</span>
-                                <span class="icon-keyboard_arrow_right icon"></span></a></p>
 
 
                         <div class="col-md-12 ">

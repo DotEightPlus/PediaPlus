@@ -21,7 +21,7 @@ if(!isset($_GET['txt']) && !isset($_GET['inst']) && !isset($_GET['fcg']) && !iss
 <html lang="en">
 
 <head>
-    <title>DotPedia | Dowload PDF's</title>
+    <title>DotPedia | Search PDF's</title>
     <meta name="description" content="DotPedia | Search PDF's">
     <meta name="keywords" content="DotPedia, Search Pdf">
     <meta property="og:title" content="<?php echo $txt ?> - DotPedia" />
@@ -93,7 +93,7 @@ if(!isset($_GET['txt']) && !isset($_GET['inst']) && !isset($_GET['fcg']) && !iss
 
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-3">
                                 <label><b style="color: #ff0000; font-size: 18px;"
                                         class="font-weight-bold">Faculty/College
                                         .:</b></label>
@@ -115,7 +115,7 @@ if(!isset($_GET['txt']) && !isset($_GET['inst']) && !isset($_GET['fcg']) && !iss
                                 </div>
                             </div>
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
                                 <label><b style="color: #ff0000; font-size: 18px;" class="font-weight-bold">Department
                                         .:</b></label>
                                 <div class="form-group">
@@ -254,7 +254,7 @@ if(!isset($_GET['txt']) && !isset($_GET['inst']) && !isset($_GET['fcg']) && !iss
 
 
                     <div class="mb-5">
-                        <h3 class="h5 text-black mb-3">Related Past Questions</h3>
+                        <h3 class="h5 text-black mb-3">Available Tutors</h3>
                         <ul class="list-unstyled post-lists">
                             <?php 
      $sql = "SELECT * FROM pdf WHERE `approve` = 'Yes' ORDER BY id desc LIMIT 5";
