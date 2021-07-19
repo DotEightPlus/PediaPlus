@@ -254,7 +254,7 @@ if(!isset($_GET['txt']) && !isset($_GET['inst']) && !isset($_GET['fcg']) && !iss
 
 
                     <div class="mb-5">
-                        <h3 class="h5 text-black mb-3">Available Tutors</h3>
+                        <h3 class="h5 text-black mb-3">Related Past Questions</h3>
                         <ul class="list-unstyled post-lists">
                             <?php 
      $sql = "SELECT * FROM pdf WHERE `approve` = 'Yes' ORDER BY id desc LIMIT 5";
@@ -272,7 +272,7 @@ if(!isset($_GET['txt']) && !isset($_GET['inst']) && !isset($_GET['fcg']) && !iss
                     </div>
 
                     <div class="mb-5">
-                        <h3 class="h5 text-black mb-3">Top Downloaded</h3>
+                        <h3 class="h5 text-black mb-3">Available Tutors</h3>
                         <ul class="list-unstyled post-lists">
                             <?php 
      $sql = "SELECT * FROM pdf WHERE `dwnld` BETWEEN 5 AND 1000000000000000 AND `approve` = 'Yes' LIMIT 5";

@@ -212,7 +212,7 @@
                                     <div class="col-md-12 ">
                                         <a href="./preview/ccxc"><input
                                                 style="width: 100%; background: #FFE9E6; color: #ff0000;" type="submit"
-                                                value="Preview/Download" class="btn btn-pill btn-md "></a><br />
+                                                value="Preview/Download" id="" class="btn btn-pill btn-md "></a><br />
                                     </div>
                                 </div>
                             </div>
