@@ -153,7 +153,8 @@ if(!isset($_SESSION['login'])) {
                 <div class="col-md-7 mb-5 donatepdf" data-aos="fade" id="donor">
 
 
-
+                    <?php uploadpdf() ?>
+                    <br />
                     <form method="post" class="p-5 bg-white donatepdf" id="donor" enctype="multipart/form-data">
 
                         <h1>Donate PDF</h1>
@@ -179,7 +180,8 @@ if(!isset($_SESSION['login'])) {
 
                             <div class="col-md-6 mb-3 mb-md-4">
                                 <label class="text-black font-weight-bold" for="title">PDF Title</label>
-                                <input type="text" id="title" class="form-control" placeholder="e.g GST 101" required>
+                                <input type="text" name="title" id="title" class="form-control"
+                                    placeholder="e.g GST 101" required>
                             </div>
 
 
@@ -217,14 +219,15 @@ if(!isset($_SESSION['login'])) {
                             <div class="col-md-12 mb-3 mb-md-4">
                                 <label class="text-black font-weight-bold" for="title">Select File</label>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="uplfile">
+                                    <input type="file" class="custom-file-input" name="pdffile" id="pdffile" required>
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
                             </div>
 
 
                             <div class="col-md-12 mb-3 mb-md-0">
-                                <button type="button" id="donatenow" style="background: #FFE9E6; color: #ff0000;"
+                                <button type="submit" name="donatenow" id=""
+                                    style="background: #FFE9E6; color: #ff0000;"
                                     class="btn btn-pill btn-primary btn-md">Upload PDF</button><br />
                             </div>
                         </div>

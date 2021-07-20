@@ -61,7 +61,7 @@ DELIMITER;
 function validator($error_message) {
 
 $error_message = <<<DELIMITER
-<div style="background: rgba(234, 114, 140, 0.9); color: white;" class="col-md-12 alert alert-danger alert-mg-b alert-success-style6 alert-st-bg3 alert-st-bg14">
+<div style="background: #FFE9E6; color: #ff0000;" class="col-md-12 alert alert-danger alert-mg-b alert-success-style6 alert-st-bg3 alert-st-bg14">
     <button type="button" style="color: white;" class="col-md-12 close sucess-op" data-dismiss="modal" aria-label="Close">
 		<span class="icon-sc-cl" aria-hidden="true">&times;</span>
 									</button>
@@ -432,8 +432,11 @@ function global_check() {
 
 
 
+/** UPLOAD PDF */
+function uploadpdf() {
+	
 
-if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && isset($_POST['fcg']) && isset($_POST['dept']) && isset($_POST['level'])) {
+if(isset($_POST['donatenow'])) {
 
 	$inst 	= $_POST['inst'];
 	$typ 	= $_POST['typ'];
@@ -458,13 +461,33 @@ if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && is
 
 		$row = mysqli_fetch_array($rsl);
 
+		$_FILES["pdffile"]["name"];
 	
+			$target_dir = "../pdfs/";
+			$target_file =  basename($_FILES["pdffile"]["name"]);
+			$targetFilePath = $target_dir . $target_file;
+			$uploadOk = 1;
+			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+		
+			   
+			// Allow certain file formats
+			if($imageFileType != "pdf") {
+				echo validator("Sorry, only .pdf file format is allowed");
+				$uploadOk = 0;
+			} else {
+			// Check if $uploadOk is set to 0 by an error
+			if ($uploadOk == 0) {
+			   echo validator("Sorry, your file was not uploaded.");
+			// if everything is ok, try to upload file
+			} else {
+			   
+			   move_uploaded_file($_FILES["pdffile"]["tmp_name"], $targetFilePath);
 	
 	if($row['vrf'] == 'Yes') {
 				
 		//approve PDF and upload details
-		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `dwnld`, `approve`, `earn`, `pedia`)";
-		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '0', 'Yes', '2', '$pedia')";
+		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `dwnld`, `approve`, `earn`, `pedia`, `filer`)";
+		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '0', 'Yes', '2', '$pedia', '$target_file')";
 		$result = query($ssl);
 
 		$_SESSION['uploaded'] = "Your PDF was approved and uploaded successfully";
@@ -475,8 +498,8 @@ if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && is
 	} else {
 
 		//disapprove pdf
-		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `date`, `approve`, `earn`, `pedia`)";
-		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '$date', 'No', '2', '$pedia')";
+		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `date`, `approve`, `earn`, `pedia`, `filer`)";
+		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '$date', 'No', '2', '$pedia', '$target_file')";
 		$result = query($ssl);
 
 		$_SESSION['uploaded'] = "Your PDF has been uploaded. A mail will be sent to you once your PDF is reviewed and approved.";
@@ -487,64 +510,7 @@ if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && is
 
 }
 }
-
-
-/** PDF DOWNLOAD COUNTER */
-if(isset($_POST['prv'])) {
-
-	$data = $_POST['prv'];
-
-	//get the previous count
-	$sql = "SELECT * FROM pdf WHERE `pedia` = '$data'";
-	$rsl = query($sql);
-	$row = mysqli_fetch_array($rsl);
-
-	$count = $row['dwnld'];
-
-	if($count == 0){
-
-		$new = 1;
-	} else {
-
-		$new = 1 + $count;
-
-	}
-
-	//update new count
-	$ssl = "UPDATE pdf SET `dwnld` = '$new' WHERE `pedia` = '$data'";
-	$rsl = query($ssl);
-
-	echo $new;
-	
 }
-
-
-
-if(isset($_POST['ltprv'])) {
-
-	$data = $_POST['ltprv'];
-
-	//get the previous count
-	$sql = "SELECT * FROM pdf WHERE `pedia` = '$data'";
-	$rsl = query($sql);
-	$row = mysqli_fetch_array($rsl);
-
-	$count = $row['dwnld'];
-
-	if($count == 0){
-
-		$new = 1;
-	} else {
-
-		$new = 1 + $count;
-
-	}
-
-	//update new count
-	$ssl = "UPDATE pdf SET `dwnld` = '$new' WHERE `pedia` = '$data'";
-	$rsl = query($ssl);
-
-	echo $new;
-	
+}
 }
 ?>
