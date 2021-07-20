@@ -1,11 +1,34 @@
-<?php include("functions/init.php");?>
+<?php include("functions/init.php");
+if(!isset($_GET['pdf'])) {
+
+    redirect("./pdf");
+} else {
+
+    $data = $_GET['pdf'];
+
+    $sql = "SELECT * FROM pdf WHERE `pedia` = '$data'";
+    $rsl = query($sql);
+
+    if(row_count($rsl) == '') {
+        
+        redirect("./pdf");
+    } else {
+
+        $row  = mysqli_fetch_array($rsl);
+
+
+       
+    }
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>DotPedia | Dowload PDF's</title>
-    <meta name="description" content="DotPedia | Download PDF's">
-    <meta name="keywords" content="DotPedia, Download Pdf">
+    <title>DotPedia | Preview PDF's</title>
+    <meta name="description" content="DotPedia | Preview PDF's">
+    <meta name="keywords" content="DotPedia, Preview Pdf">
     <?php include("include/header.php"); ?>
     <div class="site-blocks-cover overlay" style="background-image: url(images/3.png);" data-aos="fade"
         data-stellar-background-ratio="0.5">
@@ -32,10 +55,10 @@
     <div class="block-quick-info-2">
         <div class="container">
             <div class="block-quick-info-2-inner">
-                <div class="row">
+                <div class="row col-lg-12">
 
-                    <iframe src="pdfs/1.pdf" style="border:none; width: 100%; height: 100vh"></iframe>
-
+                    <iframe style="width: 100%; height: 100vh; border:none"
+                        src="pdfs/<?php echo $row['filer'] ?>"></iframe>
                 </div>
             </div>
         </div>

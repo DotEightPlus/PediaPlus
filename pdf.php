@@ -172,7 +172,7 @@
                     <div class="row mb-3 align-items-stretch">
 
                         <?php
-    $ssl = "SELECT * FROM pdf WHERE `approve` = 'Yes' AND `dwnld` BETWEEN 5 AND 1000000000000000 ORDER BY id desc";
+    $ssl = "SELECT * FROM pdf WHERE `approve` = 'Yes' AND `dwnld` BETWEEN 5 AND 1000000000000000 ORDER BY id asc";
     $rls = query($ssl); 
 
     while($row = mysqli_fetch_array($rls)) {
@@ -186,7 +186,7 @@
                                         <?php echo $row['title']; ?>
                                     </h2>
                                     <div style="color: #000" class="meta mb-4">Uploaded by <a
-                                            href="./<?php echo $row['upld'] ?>"><?php echo $row['upld'] ?>
+                                            href="#"><?php echo $row['upld'] ?>
 
 
                                         </a>
@@ -210,9 +210,11 @@
 
 
                                     <div class="col-md-12 ">
-                                        <a href="./preview/ccxc"><input
+                                        <p id="prv" hidden><?php echo $row['pedia'] ?></p>
+                                        <a href="./preview?pdf=<?php echo $row['pedia'] ?>"><input
                                                 style="width: 100%; background: #FFE9E6; color: #ff0000;" type="submit"
-                                                value="Preview/Download" id="" class="btn btn-pill btn-md "></a><br />
+                                                value="Preview/Download" class="btn btn-pill btn-md "
+                                                id="download"></a><br />
                                     </div>
                                 </div>
                             </div>
@@ -238,7 +240,7 @@
                     <div class="row mb-3 align-items-stretch">
 
                         <?php
-                        $ssl = "SELECT * FROM pdf WHERE `approve` = 'Yes' ORDER BY id desc";
+                        $ssl = "SELECT * FROM pdf WHERE `approve` = 'Yes' AND `dwnld` BETWEEN 0 AND 4 ORDER BY id desc";
                         $rls = query($ssl); 
 
                         while($row = mysqli_fetch_array($rls)) {
@@ -276,9 +278,11 @@
 
 
                                     <div class="col-md-12 ">
-                                        <a href="./preview/ccxc"><input
+                                        <p id="ltprv" hidden><?php echo $row['pedia'] ?></p>
+                                        <a href="./preview?pdf=<?php echo $row['pedia'] ?>"><input
                                                 style="width: 100%; background: #FFE9E6; color: #ff0000;" type="submit"
-                                                value="Preview/Download" class="btn btn-pill btn-md "></a><br />
+                                                value="Preview/Download" class="btn btn-pill btn-md "
+                                                id="ltdownload"></a><br />
                                     </div>
                                 </div>
                             </div>

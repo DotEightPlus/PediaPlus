@@ -444,6 +444,8 @@ if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && is
 
 	$upl    = $_SESSION['login'];
 
+	$pedia  = "pedia".rand(0, 9999);
+
 	//check if the uploader is verified
 	$sql = "SELECT * FROM signup WHERE `usname` = '$upl'";
 	$rsl = query($sql);
@@ -461,8 +463,8 @@ if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && is
 	if($row['vrf'] == 'Yes') {
 				
 		//approve PDF and upload details
-		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `dwnld`, `approve`, `earn`)";
-		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '0', 'Yes', '2')";
+		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `dwnld`, `approve`, `earn`, `pedia`)";
+		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '0', 'Yes', '2', '$pedia')";
 		$result = query($ssl);
 
 		$_SESSION['uploaded'] = "Your PDF was approved and uploaded successfully";
@@ -473,8 +475,8 @@ if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && is
 	} else {
 
 		//disapprove pdf
-		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `date`, `approve`)";
-		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '$date', 'No')";
+		$ssl = "INSERT INTO pdf(`sn`, `inst`, `typ`, `title`, `fcg`, `dept`, `level`, `upld`, `date`, `approve`, `earn`, `pedia`)";
+		$ssl.= "VALUES('1', '$inst', '$typ', '$title', '$fcg', '$dept', '$level', '$upl', '$date', 'No', '2', '$pedia')";
 		$result = query($ssl);
 
 		$_SESSION['uploaded'] = "Your PDF has been uploaded. A mail will be sent to you once your PDF is reviewed and approved.";
@@ -484,5 +486,65 @@ if(isset($_POST['inst']) && isset($_POST['typ']) && isset($_POST['title']) && is
 	}
 
 }
+}
+
+
+/** PDF DOWNLOAD COUNTER */
+if(isset($_POST['prv'])) {
+
+	$data = $_POST['prv'];
+
+	//get the previous count
+	$sql = "SELECT * FROM pdf WHERE `pedia` = '$data'";
+	$rsl = query($sql);
+	$row = mysqli_fetch_array($rsl);
+
+	$count = $row['dwnld'];
+
+	if($count == 0){
+
+		$new = 1;
+	} else {
+
+		$new = 1 + $count;
+
+	}
+
+	//update new count
+	$ssl = "UPDATE pdf SET `dwnld` = '$new' WHERE `pedia` = '$data'";
+	$rsl = query($ssl);
+
+	echo $new;
+	
+}
+
+
+
+if(isset($_POST['ltprv'])) {
+
+	$data = $_POST['ltprv'];
+
+	//get the previous count
+	$sql = "SELECT * FROM pdf WHERE `pedia` = '$data'";
+	$rsl = query($sql);
+	$row = mysqli_fetch_array($rsl);
+
+	$count = $row['dwnld'];
+
+	if($count == 0){
+
+		$new = 1;
+	} else {
+
+		$new = 1 + $count;
+
+	}
+
+	//update new count
+	$ssl = "UPDATE pdf SET `dwnld` = '$new' WHERE `pedia` = '$data'";
+	$rsl = query($ssl);
+
+	echo $new;
+	
 }
 ?>

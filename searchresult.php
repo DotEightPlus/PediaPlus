@@ -68,9 +68,9 @@ while($row = mysqli_fetch_array($rsl)) {
 
 
                             <div class="col-md-12 ">
-                                <a href="./preview/ccxc"><input
+                                <a href="./preview?pdf=<?php echo $row['pedia'] ?>"><input
                                         style="width: 100%; background: #FFE9E6; color: #ff0000;" type="submit"
-                                        value="Preview/Download" class="btn btn-pill btn-md "></a><br />
+                                        value="Preview/Download" class="btn btn-pill btn-md" id="download"></a><br />
                             </div>
                         </div>
                     </div>
@@ -99,12 +99,12 @@ while($row = mysqli_fetch_array($rsl)) {
                 <h3 class="h5 text-black mb-3">Related Past Questions</h3>
                 <ul class="list-unstyled post-lists">
                     <?php 
-$sql = "SELECT * FROM pq WHERE `title` LIKE '%$txt%' AND `inst` LIKE '%$inst%' AND `dept` LIKE '%$dept%' AND `level` LIKE '%$level%' AND `fcg` LIKE '%$fcg%' AND `approve` = 'Yes' ORDER BY id desc LIMIT 5";
+$sql = "SELECT * FROM pq WHERE `title` LIKE '%$txt%' AND `inst` LIKE '%$inst%' AND `dept` LIKE '%$dept%' AND `level` LIKE '%$level%' AND `fcg` LIKE '%$fcg%' AND `approve` = 'Yes' ORDER BY RAND() LIMIT 5";
 $rsl = query($sql);
 
 while($row = mysqli_fetch_array($rsl)) {
 ?>
-                    <li class="mb-2"><a href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
+                    <li class="mb-2"><a href="./pq?txt=<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
                     </li>
                     <?php
 }
@@ -116,12 +116,12 @@ while($row = mysqli_fetch_array($rsl)) {
                 <h3 class="h5 text-black mb-3">Available Tutors</h3>
                 <ul class="list-unstyled post-lists">
                     <?php 
-     $sql = "SELECT * FROM tutor WHERE `dwnld` BETWEEN 5 AND 1000000000000000 AND `approve` = 'Yes' LIMIT 5";
+     $sql = "SELECT * FROM pq WHERE `title` LIKE '%$txt%' AND `inst` LIKE '%$inst%' AND `dept` LIKE '%$dept%' AND `level` LIKE '%$level%' AND `fcg` LIKE '%$fcg%' AND `approve` = 'Yes' ORDER BY RAND() LIMIT 5";
      $rsl = query($sql);
      
      while($row = mysqli_fetch_array($rsl)) {
     ?>
-                    <li class="mb-2"><a href="./preview/<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
+                    <li class="mb-2"><a href="./tutors?txt=<?php echo $row['filer'] ?>"><?php echo $row['title'] ?></a>
                     </li>
                     <?php
         }
