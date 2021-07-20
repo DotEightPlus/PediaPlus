@@ -295,35 +295,4 @@ $(document).ready(function () {
     xhr.send();
            
   })
-
-
-  /** COUNT DOWNLOADS */
-$("#download").click(function () {
-    var prv = $("#prv").text();
-
-   
-        $.ajax({
-          type: "post",
-          url: "functions/init.php",
-          data: {prv:prv},
-          success: function (data) {
-            $("#prv").html(data);
-          },
-        });
-  });
-
-
-  $("#ltdownload").click(function () {
-    var ltprv = $("#ltprv").text();
-
-   
-        $.ajax({
-          type: "post",
-          url: "functions/init.php",
-          data: {ltprv:ltprv},
-          success: function (data) {
-            $("#prv").html(data);
-          },
-        });
-  });
 });

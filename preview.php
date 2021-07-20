@@ -14,7 +14,24 @@ if(!isset($_GET['pdf'])) {
         redirect("./pdf");
     } else {
 
-        $row  = mysqli_fetch_array($rsl);
+    $row  = mysqli_fetch_array($rsl);
+
+    $count = $row['dwnld'];
+
+	if($count == 0){
+
+		$new = 1;
+        
+	} else {
+
+	$new = 1 + $count;
+
+    //update new count
+	$ssl = "UPDATE pdf SET `dwnld` = '$new' WHERE `pedia` = '$data'";
+	$rsl = query($ssl);
+
+	}
+
 
 
        

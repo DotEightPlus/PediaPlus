@@ -210,11 +210,9 @@
 
 
                                     <div class="col-md-12 ">
-                                        <p id="prv" hidden><?php echo $row['pedia'] ?></p>
                                         <a href="./preview?pdf=<?php echo $row['pedia'] ?>"><input
                                                 style="width: 100%; background: #FFE9E6; color: #ff0000;" type="submit"
-                                                value="Preview/Download" class="btn btn-pill btn-md "
-                                                id="download"></a><br />
+                                                value="Preview/Download" class="btn btn-pill btn-md "></a><br />
                                     </div>
                                 </div>
                             </div>
@@ -278,11 +276,9 @@
 
 
                                     <div class="col-md-12 ">
-                                        <p id="ltprv" hidden><?php echo $row['pedia'] ?></p>
                                         <a href="./preview?pdf=<?php echo $row['pedia'] ?>"><input
                                                 style="width: 100%; background: #FFE9E6; color: #ff0000;" type="submit"
-                                                value="Preview/Download" class="btn btn-pill btn-md "
-                                                id="ltdownload"></a><br />
+                                                value="Preview/Download" class="btn btn-pill btn-md "></a><br />
                                     </div>
                                 </div>
                             </div>
