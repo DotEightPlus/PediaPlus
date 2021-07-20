@@ -460,9 +460,7 @@ if(isset($_POST['donatenow'])) {
 	} else {
 
 		$row = mysqli_fetch_array($rsl);
-
-		$_FILES["pdffile"]["name"];
-	
+		
 			$target_dir = "../pdfs/";
 			$target_file =  basename($_FILES["pdffile"]["name"]);
 			$targetFilePath = $target_dir . $target_file;
